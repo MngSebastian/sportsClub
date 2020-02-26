@@ -1,0 +1,44 @@
+.mainPage {
+  display: flex;
+  justify-content: center;
+  height: 86vh;
+  padding-top: 40px;
+}
+
+.mainPageInfo {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: center;
+  padding-top: 15px;
+  height: 45vh;
+  width: 60vh;
+  color: white;
+}
+
+.mainHeading {
+  display: flex;
+  text-align: center;
+}
+.mainPageBtn {
+  display: flex;
+  border: 1px solid white;
+  margin-top: 15vh;
+  height: 5vh;
+  width: 12vw;
+  background-color: Transparent;
+  color: white;
+  font-size: 25px;
+  justify-content: center;
+  cursor: pointer;
+}
+
+.mainPageBtn:before {
+  content: "";
+}
+
+.mainPageBtn:hover {
+  color: rgba(230, 126, 34, 1);
+  /* box-shadow: 0 3px 20px 2.5px rgba(211, 84, 0, 1); */
+  border: 1px solid rgba(230, 126, 34, 1);
+}

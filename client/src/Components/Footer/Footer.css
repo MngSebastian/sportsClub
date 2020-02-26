@@ -1,0 +1,8 @@
+.footer {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  border: 1px solid red;
+  height: 3vh;
+  padding: 0 12vw;
+}

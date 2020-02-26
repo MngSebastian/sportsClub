@@ -1,0 +1,28 @@
+.navbar {
+  /* box-shadow: 0 1.3px 10px 2.5px grey; */
+  height: 7vh;
+  display: flex;
+  justify-content: space-between;
+  padding: 0 20px;
+  align-items: flex-end;
+  background-color: rgba(55, 55, 55, 0.1);
+}
+.navbar .navbarItems {
+  font-size: 28px;
+}
+.navbarItems {
+  color: white;
+  text-decoration: none;
+  font-size: 20px;
+}
+.navbarItems:hover {
+  color: rgba(230, 126, 34, 1);
+  /* border-bottom: 1px solid rgba(230, 126, 34, 1); */
+  transition: 0.2s;
+}
+.login-register {
+  display: flex;
+  justify-content: space-around;
+  width: 14vw;
+  font-size: 40px;
+}
