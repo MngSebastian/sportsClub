@@ -7,22 +7,24 @@ const User = require("../models/User");
 const bcrypt = require("bcrypt");
 const bcryptSalt = 10;
 
-router.get("/login", (req, res, next) => {
-  res.render("auth/login", { message: req.flash("error") });
-});
-
-router.post(
-  "/login",
-  passport.authenticate("local", {
-    successRedirect: "/",
-    failureRedirect: "/auth/login",
-    failureFlash: true,
-    passReqToCallback: true
-  })
-);
-
-router.get("/signup", (req, res, next) => {
-  res.render("auth/signup");
+//LOGIN USER
+router.post("/login", (req, res, next) => {
+  passport.authenticate("local", (err, user, info) => {
+    if (err) {
+      return res.status(500).json({ message: "Error while authenticating" });
+    }
+    if (!user) {
+      // no user found with username or password didn't match
+      return res.status(400).json({ message: info.message });
+    }
+    // passport req.login
+    req.login(user, err => {
+      if (err) {
+        return res.status(500).json({ message: "Error while logging in" });
+      }
+      res.json(user);
+    });
+  })(req, res, next);
 });
 
 router.post("/signup", (req, res, next) => {
@@ -63,9 +65,10 @@ router.post("/signup", (req, res, next) => {
     });
 });
 
-router.get("/logout", (req, res) => {
+router.delete("/logout", (req, res) => {
+  // passport logout function
   req.logout();
-  res.redirect("/");
+  res.json({ message: "Successful logout" });
 });
 
 router.get("/loggedin", (req, res) => {
