@@ -11,7 +11,9 @@ const Navbar = props => {
       </div>
       <div className="login-register">
         <Link className="navbarItems">Login</Link>
-        <Link className="navbarItems">Signup</Link>
+        <Link to="/signup" className="navbarItems">
+          Signup
+        </Link>
       </div>
     </nav>
   );
