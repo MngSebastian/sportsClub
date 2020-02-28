@@ -16,7 +16,7 @@ export default class Login extends Component {
 
   handleSubmit = event => {
     event.preventDefault();
-    console.log("SUBMIT clicked");
+    
 
     axios
       .post("/auth/login", {
@@ -26,9 +26,9 @@ export default class Login extends Component {
       .then(response => {
         // redirect
         this.props.history.push("/");
-        console.log(this.props.history);
+        
         // update state for user in <App/>
-        console.log(response);
+        
         this.props.setUser(response.data);
       })
       .catch(err => {

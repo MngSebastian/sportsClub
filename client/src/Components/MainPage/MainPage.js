@@ -6,7 +6,7 @@ import PopUp from "../Login-Signup/signup-login";
 
 class MainPage extends Component {
   state = {
-    renderPopUp: true
+    renderPopUp: false
   };
 
   render() {
@@ -22,7 +22,9 @@ class MainPage extends Component {
                 of type and scrambled it to make a type specimen book.
               </h3>
 
-              <button className="mainPageBtn">Start playing</button>
+              <button to="/mapView" className="mainPageBtn">
+                Start playing
+              </button>
             </div>
           </div>
         </div>

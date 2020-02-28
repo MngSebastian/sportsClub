@@ -5,7 +5,7 @@
   justify-content: space-between;
   /* padding: 0 20px; */
   align-items: flex-end;
-  background-color: rgba(55, 55, 55, 0.1);
+  background-color: rgba(55, 55, 55, 1);
   position: fixed;
   width: 100%;
   z-index: 300;
