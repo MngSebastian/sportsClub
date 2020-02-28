@@ -2,12 +2,13 @@ import React from "react";
 import axios from "axios";
 import { Link } from "react-router-dom";
 import "./Navbar.css";
-
 import Login from "../Login/Login";
+import Signup from "../Signup/Signup";
 
 class Navbar extends React.Component {
   state = {
-    signIn: false
+    PopUpLogin: false,
+    PopUpSignup: false
   };
 
   logout = () => {
@@ -16,10 +17,17 @@ class Navbar extends React.Component {
     });
   };
 
-  onClickSignIn = () => {
+  onClickPopUpLogin = () => {
     console.log("hello2");
     this.setState({
-      signIn: !this.state.signIn
+      PopUpLogin: !this.state.PopUpLogin
+    });
+  };
+
+  onClickPopUpSignup = () => {
+    console.log("hello2");
+    this.setState({
+      PopUpSignup: !this.state.PopUpSignup
     });
   };
 
@@ -49,12 +57,23 @@ class Navbar extends React.Component {
               Home
             </Link>
           </div>
-          <div className="login-register" onClick={() => this.onClickSignIn()}>
-            <Link className="navbarItems">Login</Link>
-            <Link className="navbarItems">Signup</Link>
+          <div className="login-register">
+            <Link
+              onClick={() => this.onClickPopUpLogin()}
+              className="navbarItems"
+            >
+              Login
+            </Link>
+            <Link
+              onClick={() => this.onClickPopUpSignup()}
+              className="navbarItems"
+            >
+              Signup
+            </Link>
           </div>
         </nav>
-        {this.state.signIn ? <Login /> : ""}
+        {this.state.PopUpLogin ? <Login setUser={this.props.setUser} /> : ""}
+        {this.state.PopUpSignup ? <Signup setUser={this.props.setUser} /> : ""}
       </div>
     );
   }

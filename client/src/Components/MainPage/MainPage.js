@@ -1,14 +1,7 @@
 import React, { Component } from "react";
-import axios from "axios";
-import { Link } from "react-router-dom";
 import "./MainPage.css";
-import Login from "../Login/Login";
 
 class MainPage extends Component {
-  state = {
-    // renderSignUp: false
-  };
-
   render() {
     return (
       <div>
@@ -16,11 +9,9 @@ class MainPage extends Component {
           <div className="mainPage">
             <div className="mainPageInfo">
               <h3 className="mainHeading">
-                Lorem Ipsum is simply dummy text of the printing and typesetting
-                industry. Lorem Ipsum has been the industry's standard dummy
-                text ever since the 1500s, when an unknown printer took a galley
-                of type and scrambled it to make a type specimen book.
+                Play sports.<br></br> Make friends.
               </h3>
+              <hr className="line"></hr>
 
               <button className="mainPageBtn">Start playing</button>
             </div>
