@@ -2,48 +2,81 @@ import React from "react";
 import axios from "axios";
 import { Link } from "react-router-dom";
 import "./Navbar.css";
+import Login from "../Login/Login";
+import Signup from "../Signup/Signup";
 
-const Navbar = props => {
-  const logout = () => {
+class Navbar extends React.Component {
+  state = {
+    PopUpLogin: false,
+    PopUpSignup: false
+  };
+
+  logout = () => {
     axios.delete("/auth/logout").then(() => {
-      props.setUser(null);
+      this.props.setUser(null);
     });
   };
 
-  if (props.user) {
+  onClickPopUpLogin = () => {
+    console.log("hello2");
+    this.setState({
+      PopUpLogin: !this.state.PopUpLogin
+    });
+  };
+
+  onClickPopUpSignup = () => {
+    console.log("hello2");
+    this.setState({
+      PopUpSignup: !this.state.PopUpSignup
+    });
+  };
+
+  render() {
+    if (this.props.user) {
+      return (
+        <nav className="navbar">
+          <div className="login-register">
+            <Link to="/" className="navbarItems">
+              Home
+            </Link>
+          </div>
+          <div className="login-register">
+            <Link className="navbarItems">{this.props.user.username}</Link>
+            <Link onClick={this.logout} to="/" className="navbarItems">
+              Logout
+            </Link>
+          </div>
+        </nav>
+      );
+    }
     return (
-      <nav className="navbar">
-        <div className="login-register">
-          <Link to="/" className="navbarItems">
-            Home
-          </Link>
-        </div>
-        <div className="login-register">
-          <Link className="navbarItems">{props.user.username}</Link>
-          <Link onClick={logout} to="/" className="navbarItems">
-            Logout
-          </Link>
-        </div>
-      </nav>
+      <div>
+        <nav className="navbar">
+          <div className="login-register">
+            <Link to="/" className="navbarItems">
+              Home
+            </Link>
+          </div>
+          <div className="login-register">
+            <Link
+              onClick={() => this.onClickPopUpLogin()}
+              className="navbarItems"
+            >
+              Login
+            </Link>
+            <Link
+              onClick={() => this.onClickPopUpSignup()}
+              className="navbarItems"
+            >
+              Signup
+            </Link>
+          </div>
+        </nav>
+        {this.state.PopUpLogin ? <Login setUser={this.props.setUser} /> : ""}
+        {this.state.PopUpSignup ? <Signup setUser={this.props.setUser} /> : ""}
+      </div>
     );
   }
-  return (
-    <nav className="navbar">
-      <div className="login-register">
-        <Link to="/" className="navbarItems">
-          Home
-        </Link>
-      </div>
-      <div className="login-register">
-        <Link to="/login" className="navbarItems">
-          Login
-        </Link>
-        <Link to="/signup" className="navbarItems">
-          Signup
-        </Link>
-      </div>
-    </nav>
-  );
-};
+}
 
 export default Navbar;
