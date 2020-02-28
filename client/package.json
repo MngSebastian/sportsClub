@@ -2,11 +2,7 @@
   "name": "client",
   "version": "0.1.0",
   "private": true,
-<<<<<<< HEAD
-  "proxy": "http://localhost:7778",
-=======
   "proxy": "http://localhost:3050",
->>>>>>> 95090c3d8c98c1afe23d3ce193f072988d2fe527
   "dependencies": {
     "@testing-library/jest-dom": "^4.2.4",
     "@testing-library/react": "^9.4.1",

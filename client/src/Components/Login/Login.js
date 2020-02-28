@@ -19,12 +19,7 @@ class Login extends Component {
 
   handleSubmit = event => {
     event.preventDefault();
-<<<<<<< HEAD
-    
 
-=======
-    console.log("SUBMIT clicked");
->>>>>>> 95090c3d8c98c1afe23d3ce193f072988d2fe527
     axios
       .post("/auth/login", {
         username: this.state.username,
@@ -32,16 +27,10 @@ class Login extends Component {
       })
       .then(response => {
         // redirect
-<<<<<<< HEAD
         this.props.history.push("/");
-        
+
         // update state for user in <App/>
-        
-=======
 
-        console.log(this.props.history);
-
->>>>>>> 95090c3d8c98c1afe23d3ce193f072988d2fe527
         this.props.setUser(response.data);
         this.props.history.push("/test");
       })
