@@ -2,11 +2,11 @@ import React, { Component } from "react";
 import axios from "axios";
 import { Link } from "react-router-dom";
 import "./MainPage.css";
-import PopUp from "../Login-Signup/signup-login";
+import Login from "../Login/Login";
 
 class MainPage extends Component {
   state = {
-    renderPopUp: true
+    // renderSignUp: false
   };
 
   render() {
@@ -26,7 +26,6 @@ class MainPage extends Component {
             </div>
           </div>
         </div>
-        {this.state.renderPopUp ? <PopUp /> : ""}
       </div>
     );
   }

@@ -23,7 +23,7 @@ export class App extends React.Component {
     return (
       <div className="test">
         <Navbar setUser={this.setUser} user={this.state.user} />
-        <Route
+        {/* <Route
           path="/signup"
           render={props => (
             <Signup history={props.history} setUser={this.setUser} />
@@ -34,7 +34,7 @@ export class App extends React.Component {
           render={props => (
             <Login history={props.history} setUser={this.setUser} />
           )}
-        />
+        /> */}
         <Footer></Footer>
         <MainPage></MainPage>
       </div>
