@@ -1,25 +1,19 @@
-const mongoose = require('mongoose');
-const Schema   = mongoose.Schema;
+const mongoose = require("mongoose");
+const Schema = mongoose.Schema;
 
-
-//NOT FINISHED
-const eventSchema = new Schema({
-  username: String,
-  password: String,
-  createdEvents: {
-    type: Schema.Types.ObjectId,
-    ref: "Event"
+const locationSchema = new Schema(
+  {
+    name: String,
+    location: [Number],
+    description: String
   },
-  joinedEvents: {
-    type: Schema.Types.ObjectId,
-    ref: "Event"
-  },
-}, {
-  timestamps: {
-    createdAt: 'created_at',
-    updatedAt: 'updated_at'
+  {
+    timestamps: {
+      createdAt: "created_at",
+      updatedAt: "updated_at"
+    }
   }
-});
+);
 
-const Event = mongoose.model('Event', eventSchema);
-module.exports = Event;
+const Location = mongoose.model("Location", locationSchema);
+module.exports = Location;
