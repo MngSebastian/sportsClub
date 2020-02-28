@@ -8,10 +8,10 @@ import MainPage from "./Components/MainPage/MainPage";
 export class App extends React.Component {
   render() {
     return (
-      <div className="test">
+      <div>
         <Navbar></Navbar>
-        <MainPage></MainPage>
         <Footer></Footer>
+        <MainPage></MainPage>
       </div>
     );
   }

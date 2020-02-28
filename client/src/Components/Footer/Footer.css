@@ -5,4 +5,9 @@
   border: 1px solid red;
   height: 3vh;
   padding: 0 12vw;
+  background-color: black;
+  position: fixed;
+  width: 100%;
+  bottom: 0;
+  z-index: 300;
 }

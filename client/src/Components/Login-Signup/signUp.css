@@ -1,0 +1,16 @@
+.PopUp {
+  display: flex;
+  position: absolute;
+  top: 150px;
+  height: 60vh;
+  width: 30vw;
+  background-color: white;
+  left: 35%;
+  border-radius: 20px;
+  opacity: 0.9;
+}
+
+.heading {
+  position: relative;
+  /* padding: 6vh 10vw; */
+}
