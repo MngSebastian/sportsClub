@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 import axios from "axios";
 import "./Login.css";
-import { Redirect, withRouter } from "react-router-dom";
+import { withRouter } from "react-router-dom";
 
 class Login extends Component {
   state = {
@@ -19,12 +19,7 @@ class Login extends Component {
 
   handleSubmit = event => {
     event.preventDefault();
-<<<<<<< HEAD
-    
 
-=======
-    console.log("SUBMIT clicked");
->>>>>>> 95090c3d8c98c1afe23d3ce193f072988d2fe527
     axios
       .post("/auth/login", {
         username: this.state.username,
@@ -32,18 +27,13 @@ class Login extends Component {
       })
       .then(response => {
         // redirect
-<<<<<<< HEAD
         this.props.history.push("/");
-        
+
         // update state for user in <App/>
-        
-=======
-
-        console.log(this.props.history);
-
->>>>>>> 95090c3d8c98c1afe23d3ce193f072988d2fe527
         this.props.setUser(response.data);
         this.props.history.push("/test");
+
+        this.props.popupBoolean();
       })
       .catch(err => {
         this.setState({
@@ -77,7 +67,6 @@ class Login extends Component {
                 value={this.state.password}
                 onChange={this.handleChange}
               />
-
               <button type="submit">Login</button>
             </form>
           </div>

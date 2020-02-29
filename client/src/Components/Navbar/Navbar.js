@@ -18,14 +18,12 @@ class Navbar extends React.Component {
   };
 
   onClickPopUpLogin = () => {
-    console.log("hello2");
     this.setState({
       PopUpLogin: !this.state.PopUpLogin
     });
   };
 
   onClickPopUpSignup = () => {
-    console.log("hello2");
     this.setState({
       PopUpSignup: !this.state.PopUpSignup
     });
@@ -72,7 +70,14 @@ class Navbar extends React.Component {
             </Link>
           </div>
         </nav>
-        {this.state.PopUpLogin ? <Login setUser={this.props.setUser} /> : ""}
+        {this.state.PopUpLogin ? (
+          <Login
+            popupBoolean={this.onClickPopUpLogin}
+            setUser={this.props.setUser}
+          />
+        ) : (
+          ""
+        )}
         {this.state.PopUpSignup ? <Signup setUser={this.props.setUser} /> : ""}
       </div>
     );

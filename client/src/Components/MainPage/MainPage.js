@@ -1,8 +1,10 @@
 import React, { Component } from "react";
+import { Link } from "react-router-dom";
 import "./MainPage.css";
 
 class MainPage extends Component {
   render() {
+    console.log("MAINPAGE CONSOLE TEST");
     return (
       <div>
         <div className="homePage">
@@ -13,9 +15,9 @@ class MainPage extends Component {
               </h3>
               <hr className="line"></hr>
 
-              <button to="/mapView" className="mainPageBtn">
+              <Link to="/sports" className="mainPageBtn">
                 Start playing
-              </button>
+              </Link>
             </div>
           </div>
         </div>
