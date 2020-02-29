@@ -4,6 +4,7 @@ import { Link } from "react-router-dom";
 import "./Navbar.css";
 import Login from "../Login/Login";
 import Signup from "../Signup/Signup";
+import { FaBeer } from "react-icons/fa";
 
 class Navbar extends React.Component {
   state = {
@@ -37,7 +38,7 @@ class Navbar extends React.Component {
         <nav className="navbar">
           <div className="login-register">
             <Link to="/" className="navbarItems">
-              Home
+              sportsClub
             </Link>
           </div>
           <div className="login-register">
@@ -54,7 +55,7 @@ class Navbar extends React.Component {
         <nav className="navbar">
           <div className="login-register">
             <Link to="/" className="navbarItems">
-              Home
+              sportsClub
             </Link>
           </div>
           <div className="login-register">

@@ -44,27 +44,35 @@ export default class Signup extends Component {
             <div className="headingDiv">
               <h1 className="heading">SignUp</h1>
             </div>
-            <form onSubmit={this.handleSubmit}>
-              <label htmlFor="username">Username: </label>
-              <input
-                type="text"
-                id="username"
-                name="username"
-                value={this.state.username}
-                onChange={this.handleChange}
-              />
-
-              <label htmlFor="password">Password: </label>
-              <input
-                type="password"
-                name="password"
-                id="password"
-                value={this.state.password}
-                onChange={this.handleChange}
-              />
-
-              <button type="submit">Sign up</button>
-            </form>
+            <div className="form">
+              <form onSubmit={this.handleSubmit}>
+                <label htmlFor="username"> </label>
+                <input
+                  type="text"
+                  placeholder="Username"
+                  className="inputFields"
+                  id="username"
+                  name="username"
+                  value={this.state.username}
+                  onChange={this.handleChange}
+                />
+                <br></br>
+                <label htmlFor="password"></label>
+                <input
+                  type="password"
+                  className="inputFields"
+                  placeholder="Password"
+                  name="password"
+                  id="password"
+                  value={this.state.password}
+                  onChange={this.handleChange}
+                />
+                <br></br>
+                <button className="formBtn" type="submit">
+                  Sign up
+                </button>
+              </form>
+            </div>
           </div>
         </div>
         {this.state.message && <p>{this.state.message}</p>}
