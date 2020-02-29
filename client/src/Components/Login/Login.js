@@ -28,8 +28,14 @@ class Login extends Component {
       .then(response => {
         // redirect
         this.props.history.push("/");
+<<<<<<< HEAD
 
         // update state for user in <App/>
+=======
+
+        // update state for user in <App/>
+
+>>>>>>> 4533b25f3e84f8cd85b315e237d744656004a8fb
         this.props.setUser(response.data);
         this.props.history.push("/test");
 
@@ -51,23 +57,36 @@ class Login extends Component {
           </div>
           <div className="form">
             <form onSubmit={this.handleSubmit}>
-              <label htmlFor="username">Username: </label>
+              <label htmlFor="username"></label>
               <input
+                className="inputFields"
                 type="text"
+                autoComplete="off"
+                placeholder="Username"
                 id="username"
                 name="username"
                 value={this.state.username}
                 onChange={this.handleChange}
               />
-              <label htmlFor="password">Password: </label>
+              <br></br>
+              <label htmlFor="password"></label>
               <input
+                className="inputFields"
                 type="password"
+                placeholder="Password"
                 name="password"
                 id="password"
                 value={this.state.password}
                 onChange={this.handleChange}
               />
+<<<<<<< HEAD
               <button type="submit">Login</button>
+=======
+              <br></br>
+              <button className="formBtn" type="submit">
+                Login
+              </button>
+>>>>>>> 4533b25f3e84f8cd85b315e237d744656004a8fb
             </form>
           </div>
           {this.state.message && <p>{this.state.message}</p>}

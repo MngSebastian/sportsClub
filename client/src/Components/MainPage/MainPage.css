@@ -10,13 +10,14 @@
   flex-direction: column;
   justify-content: flex-start;
   align-items: center;
-  padding-top: 6vh;
+  margin-top: 14vh;
   height: 45vh;
   width: 60vh;
   color: white;
 }
 
 .mainHeading {
+  margin: 0;
   display: flex;
   text-align: center;
   font-size: 60px;
@@ -45,7 +46,6 @@
 }
 
 .line {
-  margin-top: -50px;
   border: 2px solid white;
   width: 460px;
 }
