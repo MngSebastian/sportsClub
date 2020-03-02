@@ -29,7 +29,7 @@ export default class Map extends Component {
   }
 }
 
-// let map = new mapboxgl.Map({
-//   container: "YOUR_CONTAINER_ELEMENT_ID",
-//   style: "mapbox://styles/mapbox/streets-v11"
-// });
+let map = new mapboxgl.Map({
+  container: "YOUR_CONTAINER_ELEMENT_ID",
+  style: "mapbox://styles/mapbox/streets-v11"
+});
