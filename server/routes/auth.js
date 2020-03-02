@@ -57,6 +57,7 @@ router.post("/signup", (req, res, next) => {
             if (err)
               res.status(500).json({ message: "Error while logging in" });
             else res.json(newUser);
+            console.log(newUser);
           });
         });
     })
