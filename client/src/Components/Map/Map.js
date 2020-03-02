@@ -1,3 +1,4 @@
+import "./Map.css";
 import React, { Component } from "react";
 const mapboxgl = require("mapbox-gl/dist/mapbox-gl.js");
 
@@ -23,7 +24,7 @@ export default class Map extends Component {
   render() {
     return (
       <div>
-        <div ref={el => (this.mapContainer = el)}></div>
+        <div ref={el => (this.mapContainer = el)} className="mapContainer" />
       </div>
     );
   }
