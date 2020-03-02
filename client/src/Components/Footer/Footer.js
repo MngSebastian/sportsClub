@@ -5,11 +5,9 @@ import "./Footer.css";
 const Footer = props => {
   return (
     <div className="footer">
-      <div>
-        <Link className="navbarItems">Stjepan</Link>
-      </div>
-      <Link className="navbarItems">Powered by</Link>
-      <Link className="navbarItems">Sebastian</Link>
+      {/* <Link className="footerItems">Stjepan</Link> */}
+      <Link className="footerItems">Powered by: Stjepan & Sebastian</Link>
+      {/* <Link className="footerItems">Sebastian</Link> */}
     </div>
   );
 };

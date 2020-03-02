@@ -1,17 +1,16 @@
 .navbar {
-  /* box-shadow: 0 1.3px 10px 2.5px grey; */
-  height: 7vh;
+  height: 10vh;
   display: flex;
   justify-content: space-between;
   /* padding: 0 20px; */
-  align-items: flex-end;
+  align-items: center;
   background-color: rgba(236, 240, 241, 0);
   position: fixed;
   width: 100%;
   z-index: 300;
 }
 .navbar .navbarItems {
-  font-size: 28px;
+  font-size: 34px;
   padding-right: 15px;
 }
 .navbarItems {

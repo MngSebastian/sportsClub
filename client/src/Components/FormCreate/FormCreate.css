@@ -1,8 +1,8 @@
 .circle {
-  border: 2.3px solid #e67e22;
+  border: 3px solid #e67e22;
   box-shadow: inset 1px 1px 3px grey;
-  width: 70px;
-  height: 70px;
+  width: 80px;
+  height: 80px;
   border-radius: 100%;
   position: absolute;
   display: inline-block;
@@ -35,7 +35,7 @@
 .circle.plus:before,
 .circle.plus:after {
   background: #e67e22;
-  /* box-shadow: 1px 1px 1px red; */
+  border: 1px solid #e67e22;
 }
 .circle.plus:hover {
 }

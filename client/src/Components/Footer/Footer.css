@@ -1,11 +1,15 @@
 .footer {
   display: flex;
-  justify-content: space-around;
+  justify-content: center;
   align-items: baseline;
-  /* border: 1px solid red; */
   height: 3vh;
   background-color: rgba(236, 240, 241, 0.25);
   position: fixed;
   width: 100%;
   bottom: 0;
+}
+.footerItems {
+  color: white;
+  text-decoration: none;
+  font-size: 20px;
 }
