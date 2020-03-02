@@ -28,14 +28,9 @@ class Login extends Component {
       .then(response => {
         // redirect
         this.props.history.push("/");
-<<<<<<< HEAD
-
-        // update state for user in <App/>
-=======
 
         // update state for user in <App/>
 
->>>>>>> 4533b25f3e84f8cd85b315e237d744656004a8fb
         this.props.setUser(response.data);
         this.props.history.push("/test");
 
@@ -79,14 +74,10 @@ class Login extends Component {
                 value={this.state.password}
                 onChange={this.handleChange}
               />
-<<<<<<< HEAD
-              <button type="submit">Login</button>
-=======
               <br></br>
               <button className="formBtn" type="submit">
                 Login
               </button>
->>>>>>> 4533b25f3e84f8cd85b315e237d744656004a8fb
             </form>
           </div>
           {this.state.message && <p>{this.state.message}</p>}

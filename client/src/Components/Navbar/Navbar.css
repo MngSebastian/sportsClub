@@ -5,11 +5,7 @@
   justify-content: space-between;
   /* padding: 0 20px; */
   align-items: flex-end;
-<<<<<<< HEAD
-  background-color: rgba(255, 255, 255, 0);
-=======
   background-color: rgba(236, 240, 241, 0);
->>>>>>> 4533b25f3e84f8cd85b315e237d744656004a8fb
   position: fixed;
   width: 100%;
   z-index: 300;

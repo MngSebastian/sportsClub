@@ -4,7 +4,6 @@ import { Link } from "react-router-dom";
 import "./Navbar.css";
 import Login from "../Login/Login";
 import Signup from "../Signup/Signup";
-import { FaBeer } from "react-icons/fa";
 
 class Navbar extends React.Component {
   state = {
