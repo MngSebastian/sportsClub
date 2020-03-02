@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 import "./FormBtn.css";
-export class FormCreate extends Component {
+export class FormBtn extends Component {
   render() {
     return (
       <div className="formMarkus">
@@ -10,4 +10,4 @@ export class FormCreate extends Component {
   }
 }
 
-export default FormCreate;
+export default FormBtn;
