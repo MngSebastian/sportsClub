@@ -25,7 +25,7 @@ export class App extends React.Component {
 
         <Route path="/" render={props => <MainPage />} />
 
-        <Route path="/sports" render={props => <SportsPage />} />
+        <Route exact path="/sports" render={props => <SportsPage />} />
 
         <Footer></Footer>
       </div>
