@@ -6,7 +6,7 @@ export default class SportsPage extends Component {
   state = {};
 
   render() {
-    console.log("SPORTS PAGE RENDERED");
+    
     return (
       <>
         <Map />

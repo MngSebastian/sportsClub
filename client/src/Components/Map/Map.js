@@ -1,3 +1,4 @@
+import axios from "axios";
 import "./Map.css";
 import React, { Component } from "react";
 
@@ -13,7 +14,8 @@ export default class Map extends Component {
   state = {
     lng: 5,
     lat: 34,
-    zoom: 2
+    zoom: 2,
+    data: []
   };
 
   componentDidMount() {
@@ -23,7 +25,20 @@ export default class Map extends Component {
       center: [this.state.lng, this.state.lat],
       zoom: this.state.zoom
     });
+    this.getData();
   }
+
+  getData = () => {
+    axios.get("/sports/all").then(res => {
+      console.log(res);
+      // let arr = res.data[0].coordinates[0];
+
+      // console.log(arr);
+      this.setState({
+        data: res
+      });
+    });
+  };
 
   render() {
     return (

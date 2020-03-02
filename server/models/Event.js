@@ -1,11 +1,19 @@
 const mongoose = require("mongoose");
 const Schema = mongoose.Schema;
 
-const locationSchema = new Schema(
+const eventSchema = new Schema(
   {
-    name: String,
-    location: [Number],
-    description: String
+    creator: {
+      type: Schema.Types.ObjectId,
+      ref: "User"
+    },
+    location: Number,
+    eventTime: { type: Date, default: Date.now },
+    description: String,
+    usersJoining: {
+      type: Schema.Types.ObjectId,
+      ref: "User"
+    }
   },
   {
     timestamps: {
@@ -15,5 +23,5 @@ const locationSchema = new Schema(
   }
 );
 
-const Location = mongoose.model("Location", locationSchema);
-module.exports = Location;
+const Event = mongoose.model("Event", eventSchema);
+module.exports = Event;

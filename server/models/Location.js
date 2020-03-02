@@ -1,19 +1,13 @@
 const mongoose = require("mongoose");
 const Schema = mongoose.Schema;
+// const GeoJSON = require("mongoose-geojson-schema");
 
-const eventSchema = new Schema(
+const locationSchema = new Schema(
   {
-    creator: {
-      type: Schema.Types.ObjectId,
-      ref: "User"
-    },
-    location: Number,
-    eventTime: { type: Date, default: Date.now },
+    name: String,
+    coordinates: [Number],
     description: String,
-    usersJoining: {
-      type: Schema.Types.ObjectId,
-      ref: "User"
-    }
+    sportType: String
   },
   {
     timestamps: {
@@ -23,5 +17,5 @@ const eventSchema = new Schema(
   }
 );
 
-const Event = mongoose.model("Event", eventSchema);
-module.exports = Event;
+const Location = mongoose.model("Location", locationSchema);
+module.exports = Location;
