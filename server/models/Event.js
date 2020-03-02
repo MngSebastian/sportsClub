@@ -7,8 +7,8 @@ const eventSchema = new Schema(
       type: Schema.Types.ObjectId,
       ref: "User"
     },
-    location: Number,
-    eventTime: { type: Date, default: Date.now },
+    location: String,
+    eventTime: String,
     description: String,
     usersJoining: {
       type: Schema.Types.ObjectId,

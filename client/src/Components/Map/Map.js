@@ -2,7 +2,8 @@ import axios from "axios";
 import "./Map.css";
 import React, { Component } from "react";
 
-import FormCreate from "./../FormCreate/FormCreate";
+import FormBtn from "../FormBtn/FormBtn";
+import FormAdd from "../FormAdd/FormAdd";
 
 // import LogoNodejs from "react-ionicons/lib/lib/LogoNodejs";
 const mapboxgl = require("mapbox-gl/dist/mapbox-gl.js");
@@ -12,10 +13,11 @@ mapboxgl.accessToken =
 
 export default class Map extends Component {
   state = {
-    lng: 5,
-    lat: 34,
-    zoom: 2,
-    data: []
+    lng: 13.4,
+    lat: 52.52,
+    zoom: 10,
+    data: [],
+    addLocPopup: false
   };
 
   componentDidMount() {
@@ -40,12 +42,29 @@ export default class Map extends Component {
     });
   };
 
+  onClickPopUp = () => {
+    this.setState({
+      addLocPopup: !this.state.addLocPopup
+    });
+    console.log(this.state.addLocPopup);
+  };
+
   render() {
     return (
       <div>
         <div ref={el => (this.mapContainer = el)} className="mapContainer">
-          <FormCreate />
+          <div onClick={() => this.onClickPopUp()}>
+            <FormBtn />
+          </div>
         </div>
+        {this.state.addLocPopup ? (
+          <FormAdd
+            popupBoolean={this.onClickPopUp}
+            setUser={this.props.setUser}
+          />
+        ) : (
+          ""
+        )}
       </div>
     );
   }
