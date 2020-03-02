@@ -27,6 +27,7 @@ router.post("/login", (req, res, next) => {
   })(req, res, next);
 });
 
+//SIGNUP
 router.post("/signup", (req, res, next) => {
   const username = req.body.username;
   const password = req.body.password;
@@ -64,6 +65,7 @@ router.post("/signup", (req, res, next) => {
       res.status(500).json({ message: "Error while authorizing" });
     });
 });
+
 
 router.delete("/logout", (req, res) => {
   // passport logout function

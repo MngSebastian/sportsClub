@@ -4,7 +4,7 @@ import "./MainPage.css";
 
 class MainPage extends Component {
   render() {
-    console.log("MAINPAGE CONSOLE TEST");
+    
     return (
       <div>
         <div className="homePage">
