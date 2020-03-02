@@ -31,9 +31,9 @@ export default class Map extends Component {
   getData = () => {
     axios.get("/sports/all").then(res => {
       console.log(res);
-      let arr = res.data[0].coordinates[0].slice();
+      // let arr = res.data[0].coordinates[0];
 
-      console.log(arr);
+      // console.log(arr);
       this.setState({
         data: res
       });
