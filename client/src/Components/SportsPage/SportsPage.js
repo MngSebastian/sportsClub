@@ -1,6 +1,5 @@
 import React, { Component } from "react";
-
-import FormCreate from "../FormCreate/FormCreate";
+import FormCreate from "./../FormCreate/FormCreate";
 import Map from "../Map/Map";
 
 export default class SportsPage extends Component {
@@ -11,7 +10,6 @@ export default class SportsPage extends Component {
     return (
       <>
         <Map />
-        {/* <FormCreate /> */}
       </>
     );
   }
