@@ -32,19 +32,21 @@ class Navbar extends React.Component {
   render() {
     if (this.props.user) {
       return (
-        <nav className="navbar">
-          <div className="login-register">
-            <Link to="/" className="navbarItems">
-              sportsClub
-            </Link>
-          </div>
-          <div className="login-register">
-            <Link className="navbarItems">{this.props.user.username}</Link>
-            <Link onClick={this.logout} to="/" className="navbarItems">
-              Logout
-            </Link>
-          </div>
-        </nav>
+        <div>
+          <nav className="navbar">
+            <div className="login-register">
+              <Link to="/" className="navbarItems">
+                sportsClub
+              </Link>
+            </div>
+            <div className="login-register">
+              <Link className="navbarItems">{this.props.user.username}</Link>
+              <Link onClick={this.logout} to="/" className="navbarItems">
+                Logout
+              </Link>
+            </div>
+          </nav>
+        </div>
       );
     }
     return (

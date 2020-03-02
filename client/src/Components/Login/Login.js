@@ -32,7 +32,7 @@ class Login extends Component {
         // update state for user in <App/>
 
         this.props.setUser(response.data);
-        this.props.history.push("/test");
+        this.props.history.push("/");
 
         this.props.popupBoolean();
       })

@@ -20,10 +20,10 @@ export class App extends React.Component {
 
   render() {
     return (
-      <div className="test">
+      <div className="testt">
         <Navbar setUser={this.setUser} user={this.state.user} />
 
-        <Route path="/" render={props => <MainPage />} />
+        <Route exact path="/" render={props => <MainPage />} />
 
         <Route exact path="/sports" render={props => <SportsPage />} />
 

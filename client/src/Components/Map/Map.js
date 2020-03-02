@@ -1,5 +1,9 @@
 import "./Map.css";
 import React, { Component } from "react";
+
+import FormCreate from "./../FormCreate/FormCreate";
+
+// import LogoNodejs from "react-ionicons/lib/lib/LogoNodejs";
 const mapboxgl = require("mapbox-gl/dist/mapbox-gl.js");
 
 mapboxgl.accessToken =
@@ -24,13 +28,15 @@ export default class Map extends Component {
   render() {
     return (
       <div>
-        <div ref={el => (this.mapContainer = el)} className="mapContainer" />
+        <div ref={el => (this.mapContainer = el)} className="mapContainer">
+          <FormCreate />
+        </div>
       </div>
     );
   }
 }
 
-let map = new mapboxgl.Map({
-  container: "YOUR_CONTAINER_ELEMENT_ID",
-  style: "mapbox://styles/mapbox/streets-v11"
-});
+// let map = new mapboxgl.Map({
+//   container: "YOUR_CONTAINER_ELEMENT_ID",
+//   style: "mapbox://styles/mapbox/streets-v11"
+// });

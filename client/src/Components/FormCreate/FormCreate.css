@@ -1,0 +1,61 @@
+.circle {
+  border: 2.3px solid #e67e22;
+  box-shadow: inset 1px 1px 3px grey;
+  width: 70px;
+  height: 70px;
+  border-radius: 100%;
+  position: absolute;
+  display: inline-block;
+  vertical-align: middle;
+  background: none;
+  outline: none;
+}
+.formMarkus {
+  z-index: 2000;
+  position: relative;
+}
+.circle:hover {
+  /* background-color: #e67e22; */
+}
+.circle:active {
+  background: #6363634f;
+}
+.circle:before,
+.circle:after {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+}
+/* PLUS */
+.circle.plus:before,
+.circle.plus:after {
+  background: #e67e22;
+  /* box-shadow: 1px 1px 1px red; */
+}
+.circle.plus:hover {
+}
+.circle.plus:before {
+  width: 2px;
+  margin: 3px auto;
+}
+.circle.plus:after {
+  margin: auto 3px;
+  height: 2px;
+  box-shadow: none;
+}
+
+/* CROSS */
+.circle.cross:after,
+.circle.cross:before {
+  background: #000;
+  margin: auto 4px;
+  height: 2px;
+  transform: rotateZ(45deg);
+  box-shadow: 0px 1px 1px #ffffff9e;
+}
+.circle.cross:after {
+  transform: rotateZ(-45deg);
+}
