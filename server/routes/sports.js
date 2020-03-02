@@ -29,25 +29,29 @@ router.get("/all", (req, res) => {
 
 //CREATE EVENT
 router.post("/event/add", (req, res, next) => {
-  const { name, location, description } = req.body;
+  const { location, description, eventTime } = req.body;
 
+  console.log(location, description, eventTime);
   Event.create({
     creator: req.user._id,
     location,
     eventTime,
-    description,
-    usersJoining
-  }).catch(err => {
-    res.status(500).json({
-      message: err.message
+    description
+  })
+    .then(event => {
+      res.json({ event });
+    })
+    .catch(err => {
+      res.status(500).json({
+        message: err.message
+      });
     });
-  });
 });
 
 //CREATE LOCATION
 router.post("/location/add", (req, res, next) => {
   const { name, coordinates, description, sportType } = req.body;
-  // console.log("loc post", name, coordinates, description, sportType);
+  console.log("loc post", name, coordinates.length, description, sportType);
   Location.create({
     name,
     coordinates,
