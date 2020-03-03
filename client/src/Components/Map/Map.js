@@ -5,7 +5,6 @@ import FormBtn from "../FormBtn/FormBtn";
 import FormAdd from "../FormAdd/FormAdd";
 import SportsNavbar from "../SportsNavbar/SportsNavbar";
 
-// import LogoNodejs from "react-ionicons/lib/lib/LogoNodejs";
 const mapboxgl = require("mapbox-gl/dist/mapbox-gl.js");
 
 mapboxgl.accessToken =
@@ -20,7 +19,9 @@ export default class Map extends Component {
     addLocPopup: false,
     basketball: false,
     football: false,
-    tennis: false
+    tennis: false,
+    coordinates: [],
+    filteredSports: []
   };
 
   componentDidMount() {
@@ -30,18 +31,29 @@ export default class Map extends Component {
       center: [this.state.lng, this.state.lat],
       zoom: this.state.zoom
     });
+    // const nav = new mapboxgl.NavigationControl();
+    // map.addControl(nav, "low-right");
+    // const geolocate = new mapboxgl.GeolocateControl({
+    //   showUserLocation: true,
+    //   trackUserLocation: true
+    // });
     this.getData();
   }
 
   getData = () => {
     axios.get("/sports/all").then(res => {
-      console.log(res);
-      // let arr = res.data[0].coordinates[0];
-
-      // console.log(arr);
+      // for (let location in res) {
+      //   if (location.sportType === "basketball" && this.state.basketball === true){
+      //     let
+      //     this.setState({
+      //       coordinates: res.data.coordinates
+      //     })
+      // }
+      // }
       this.setState({
-        data: res
+        data: res.data
       });
+      console.log(this.state.data);
     });
   };
 
@@ -49,10 +61,48 @@ export default class Map extends Component {
     this.setState({
       addLocPopup: !this.state.addLocPopup
     });
-    console.log(this.state.addLocPopup);
+  };
+
+  // basketballData = () => {
+  //   for (location in this.state.data) {
+  //     if (location.sportType === "basketball") {
+  //       location.forEach((location) => {
+  //         console.log(location.coordinates);
+  //         // add marker to map
+  //         let marker = new mapboxgl.Marker(el)
+  //             .setLngLat([location.long, location.lat])
+  //             .setPopup(popup)
+  //             .addTo(this.map);
+
+  //         this.markers.push(marker);
+  //     });
+  //     }
+  //   }
+  // }
+
+  handleOnClickSportsFilter = event => {
+    event.preventDefault();
+
+    console.log("WORKS");
+
+    this.setState({
+      [event.target.name]: !this.state[event.target.name]
+    });
   };
 
   render() {
+    let filteredSports = [];
+    if (this.state.data.length > 0) {
+      filteredSports = this.state.data.filter(ele => {
+        return (
+          (ele.sportType === "Tennis" && this.state.tennis) ||
+          (ele.sportType === "basketball" && this.state.basketball)
+        );
+      });
+    }
+
+    console.log(filteredSports);
+
     return (
       <div>
         <div ref={el => (this.mapContainer = el)} className="mapContainer">
@@ -60,7 +110,9 @@ export default class Map extends Component {
             <FormBtn />
           </div>
           <div>
-            <SportsNavbar />
+            <SportsNavbar
+              handleOnClickSportsFilter={this.handleOnClickSportsFilter}
+            />
           </div>
         </div>
         {this.state.addLocPopup ? (
@@ -75,8 +127,3 @@ export default class Map extends Component {
     );
   }
 }
-
-// let map = new mapboxgl.Map({
-//   container: "YOUR_CONTAINER_ELEMENT_ID",
-//   style: "mapbox://styles/mapbox/streets-v11"
-// });

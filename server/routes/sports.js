@@ -5,26 +5,34 @@ const Location = require("../models/Location");
 
 //DISPLAY ALL LOCATIONS AND EVENTS
 router.get("/all", (req, res) => {
-  // Event.find()
-  //   .then(events => {
-  //     console.log(events)
-  //     res.json(events);
+  // let allEvents
+  Event.find()
+    .then(events => {
+    // allEvents = events
+      console.log(events)
+      return events
+    }).then((events) => {
+    Location.find()
+    .then(locations => {
+      console.log(events, "2")
+      res.json({locations, events});
+    })
+  })
+    .catch(err => {
+      res.status(500).json({
+        message: err.message
+      });
+    });
+
+  // Location.find()
+  //   .then(locations => {
+  //     res.json(locations);
   //   })
   //   .catch(err => {
   //     res.status(500).json({
   //       message: err.message
   //     });
   //   });
-
-  Location.find()
-    .then(locations => {
-      res.json(locations);
-    })
-    .catch(err => {
-      res.status(500).json({
-        message: err.message
-      });
-    });
 });
 
 //CREATE EVENT
