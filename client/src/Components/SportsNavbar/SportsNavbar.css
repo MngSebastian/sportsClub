@@ -16,6 +16,10 @@
   height: 100%;
   width: 100%;
 }
+.sportsNavbarItem:active {
+  background: #6363634f;
+  transition: 0.2s;
+}
 .sportsNavbarItem:hover {
   box-shadow: 0 0.35px 8px 0.5px rgba(230, 126, 34, 1);
   cursor: pointer;

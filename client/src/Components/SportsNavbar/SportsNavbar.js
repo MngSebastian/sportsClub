@@ -7,7 +7,6 @@ export class SportsNavbar extends Component {
         <div className="sportsNavbarItem">
           <button>Events</button>
         </div>
-
         <div className="vl"></div>
 
         <div className="sportsNavbarItem">

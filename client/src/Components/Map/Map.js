@@ -4,7 +4,7 @@ import React, { Component } from "react";
 import FormBtn from "../FormBtn/FormBtn";
 import FormAdd from "../FormAdd/FormAdd";
 import SportsNavbar from "../SportsNavbar/SportsNavbar";
-
+import Events from "../Events/Events";
 // import LogoNodejs from "react-ionicons/lib/lib/LogoNodejs";
 const mapboxgl = require("mapbox-gl/dist/mapbox-gl.js");
 
@@ -58,6 +58,9 @@ export default class Map extends Component {
         <div ref={el => (this.mapContainer = el)} className="mapContainer">
           <div onClick={() => this.onClickPopUp()}>
             <FormBtn />
+          </div>
+          <div>
+            <Events />
           </div>
           <div>
             <SportsNavbar />

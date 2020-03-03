@@ -50,3 +50,40 @@
   border: 2px solid white;
   width: 460px;
 }
+/* ----------------Media queries----- */
+@media only screen and (max-width: 400px) {
+  .mainPageInfo {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: center;
+    margin-top: 18vh;
+    height: 45vh;
+    width: 60vh;
+    color: white;
+  }
+  .mainHeading {
+    margin: 0;
+    display: flex;
+    text-align: center;
+    font-size: 25px;
+  }
+  .line {
+    border: 2px solid white;
+    width: 210px;
+  }
+  .mainPageBtn {
+    display: flex;
+    align-items: center;
+    border: 1px solid white;
+    margin-top: 20vh;
+    height: 5vh;
+    width: 42vw;
+    background-color: Transparent;
+    color: white;
+    font-size: 25px;
+    justify-content: center;
+    cursor: pointer;
+    text-decoration: none;
+  }
+}
