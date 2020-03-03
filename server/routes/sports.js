@@ -8,16 +8,16 @@ router.get("/all", (req, res) => {
   // let allEvents
   Event.find()
     .then(events => {
-    // allEvents = events
-      console.log(events)
-      return events
-    }).then((events) => {
-    Location.find()
-    .then(locations => {
-      console.log(events, "2")
-      res.json({locations, events});
+      // allEvents = events
+      // console.log(events)
+      return events;
     })
-  })
+    .then(events => {
+      Location.find().then(locations => {
+        // console.log(events, "2")
+        res.json({ locations, events });
+      });
+    })
     .catch(err => {
       res.status(500).json({
         message: err.message
