@@ -1,9 +1,9 @@
 import axios from "axios";
 import "./Map.css";
 import React, { Component } from "react";
-
 import FormBtn from "../FormBtn/FormBtn";
 import FormAdd from "../FormAdd/FormAdd";
+import SportsNavbar from "../SportsNavbar/SportsNavbar";
 
 // import LogoNodejs from "react-ionicons/lib/lib/LogoNodejs";
 const mapboxgl = require("mapbox-gl/dist/mapbox-gl.js");
@@ -17,7 +17,10 @@ export default class Map extends Component {
     lat: 52.52,
     zoom: 10,
     data: [],
-    addLocPopup: false
+    addLocPopup: false,
+    basketball: false,
+    football: false,
+    tennis: false
   };
 
   componentDidMount() {
@@ -55,6 +58,9 @@ export default class Map extends Component {
         <div ref={el => (this.mapContainer = el)} className="mapContainer">
           <div onClick={() => this.onClickPopUp()}>
             <FormBtn />
+          </div>
+          <div>
+            <SportsNavbar />
           </div>
         </div>
         {this.state.addLocPopup ? (

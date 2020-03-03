@@ -10,8 +10,8 @@
   z-index: 300;
 }
 .navbar .navbarItems {
-  font-size: 34px;
-  padding-right: 15px;
+  font-size: 32px;
+  padding-right: 2vw;
 }
 .navbarItems {
   color: rgba(230, 126, 34, 1);
@@ -28,4 +28,5 @@
   justify-content: space-around;
   width: 17vw;
   font-size: 40px;
+  padding: 0 2.5vw;
 }
