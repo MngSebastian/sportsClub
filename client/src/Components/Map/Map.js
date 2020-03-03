@@ -4,7 +4,8 @@ import React, { Component } from "react";
 import FormBtn from "../FormBtn/FormBtn";
 import FormAdd from "../FormAdd/FormAdd";
 import SportsNavbar from "../SportsNavbar/SportsNavbar";
-
+import Events from "../Events/Events";
+// import LogoNodejs from "react-ionicons/lib/lib/LogoNodejs";
 const mapboxgl = require("mapbox-gl/dist/mapbox-gl.js");
 
 mapboxgl.accessToken =

@@ -26,7 +26,26 @@
 .login-register {
   display: flex;
   justify-content: space-around;
-  width: 17vw;
-  font-size: 40px;
+  width: 25vw;
+  font-size: 20px;
   padding: 0 2.5vw;
+}
+/* -----------Media Query----------- */
+@media only screen and (max-width: 400px) {
+  .navbarItems {
+    color: rgba(230, 126, 34, 1);
+    text-decoration: none;
+    font-size: 10px;
+  }
+  .navbar .navbarItems {
+    font-size: 24px;
+    padding-right: 4vw;
+  }
+  .login-register {
+    display: flex;
+    justify-content: space-around;
+    width: 17vw;
+    font-size: 20px;
+    padding: 0 14vw;
+  }
 }
