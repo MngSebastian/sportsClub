@@ -114,6 +114,7 @@ export default class Map extends Component {
             <SportsNavbar
               handleOnClickSportsFilter={this.handleOnClickSportsFilter}
             />
+            <Events />
           </div>
         </div>
         {this.state.addLocPopup ? (

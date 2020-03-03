@@ -49,18 +49,36 @@ class FormAdd extends Component {
           <div className="form">
             <form onSubmit={this.handleSubmit}>
               <label htmlFor="location"></label>
+
+              <br></br>
+              <label htmlFor="description"></label>
               <input
                 className="inputFields"
                 type="text"
-                autoComplete="off"
-                placeholder="Event Location"
-                id="location"
-                name="location"
-                value={this.state.location}
+                placeholder="Name Of Event"
+                name="description"
+                id="description"
+                value={this.state.description}
                 onChange={this.handleChange}
               />
               <br></br>
-              <label htmlFor="description"></label>
+              <input
+                className="inputFields"
+                type="text"
+                placeholder="Description"
+                name="description"
+                id="description"
+                value={this.state.description}
+                onChange={this.handleChange}
+              />
+              <br></br>
+              <select id="cars">
+                <option value="volvo">Volvo</option>
+                <option value="saab">Saab</option>
+                <option value="mercedes">Mercedes</option>
+                <option value="audi">Audi</option>
+              </select>
+              <br></br>
               <input
                 className="inputFields"
                 type="text"
@@ -70,7 +88,6 @@ class FormAdd extends Component {
                 value={this.state.description}
                 onChange={this.handleChange}
               />
-              <br />
               <input
                 type="datetime-local"
                 className="inputFields"
@@ -81,6 +98,7 @@ class FormAdd extends Component {
                 onChange={this.handleChange}
               />
               <br></br>
+
               <button className="formBtn" type="submit">
                 Create
               </button>

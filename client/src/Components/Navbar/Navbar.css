@@ -4,7 +4,7 @@
   justify-content: space-between;
   /* padding: 0 20px; */
   align-items: center;
-  background-color: rgba(236, 240, 241, 0);
+  background-color: rgba(189, 195, 199, 0);
   position: fixed;
   width: 100%;
   z-index: 300;
@@ -26,7 +26,7 @@
 .login-register {
   display: flex;
   justify-content: space-around;
-  width: 25vw;
+  width: 17vw;
   font-size: 20px;
   padding: 0 2.5vw;
 }
