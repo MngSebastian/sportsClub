@@ -11,7 +11,13 @@ export class Events extends Component {
           className="test555"
           // to={event._id}
         >
-          {event.description} {event.nameOfEvent} {event.eventTime}
+          {event.nameOfEvent}
+          <br></br>
+          {event.description}
+          <br></br>
+          {event.eventTime}
+          <br></br>
+          {/* <button className="eventBtn">See More</button> */}
         </div>
       );
     });
