@@ -57,6 +57,9 @@ export default class Map extends Component {
 
   handleOnClickSportsFilter = event => {
     event.preventDefault();
+    console.log(this.state.basketball, "basketball toggled");
+    console.log(this.state.tennis, "tennis toggled");
+    console.log(this.state.football, "football toggled");
     this.setState({
       [event.target.name]: !this.state[event.target.name]
     });
@@ -73,7 +76,7 @@ export default class Map extends Component {
         );
       });
     }
-    console.log(this.state.addLocPopup);
+
     return (
       <>
         <MapGL

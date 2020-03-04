@@ -9,32 +9,29 @@ export class SportsNavbar extends Component {
         </div>
         <div className="vl"></div>
 
-        <div className="sportsNavbarItem">
-          <button
-            name="football"
-            onClick={this.props.handleOnClickSportsFilter}
-          >
-            Football
-          </button>
+        <div
+          onClick={this.props.handleOnClickSportsFilter}
+          className="sportsNavbarItem"
+        >
+          <button name="football">Football</button>
         </div>
 
         <div className="vl"></div>
 
-        <div className="sportsNavbarItem">
-          <button
-            name="basketball"
-            onClick={this.props.handleOnClickSportsFilter}
-          >
-            Basketball
-          </button>
+        <div
+          onClick={this.props.handleOnClickSportsFilter}
+          className="sportsNavbarItem"
+        >
+          <button name="basketball">Basketball</button>
         </div>
 
         <div className="vl"></div>
 
-        <div className="sportsNavbarItem">
-          <button name="tennis" onClick={this.props.handleOnClickSportsFilter}>
-            Tennis
-          </button>
+        <div
+          onClick={this.props.handleOnClickSportsFilter}
+          className="sportsNavbarItem"
+        >
+          <button name="tennis">Tennis</button>
         </div>
       </div>
     );

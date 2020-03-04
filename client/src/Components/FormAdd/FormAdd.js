@@ -8,10 +8,10 @@ class FormAdd extends Component {
     nameOfEvent: "",
     description: "",
     eventTime: Date.now,
-    location: "",
-    basketball: true,
-    football: true,
-    tennis: true,
+    // location: "",
+    // basketball: true,
+    // football: true,
+    // tennis: true,
     message: ""
   };
 
