@@ -1,5 +1,5 @@
 import axios from "axios";
-import MapGL from "react-map-gl";
+import MapGL, { Marker } from "react-map-gl";
 import React, { Component } from "react";
 import "./Map.css";
 
@@ -7,9 +7,8 @@ import FormBtn from "../FormBtn/FormBtn";
 import FormAdd from "../FormAdd/FormAdd";
 import SportsNavbar from "../SportsNavbar/SportsNavbar";
 import Events from "../Events/Events";
-import { Marker } from "react-map-gl";
+import Pin from "./Pin";
 
-// const mapboxgl = require("mapbox-gl/dist/mapbox-gl.js");
 const TOKEN =
   "pk.eyJ1Ijoic3RpZmFtYWpzdG9yIiwiYSI6ImNrNmt4dm5wYTA1ZnQzbmxpNWd3N2F1Y3kifQ.G19vSaN3Jp--2ruqN8L_bQ";
 
@@ -41,7 +40,6 @@ export default class Map extends Component {
         locations: res.data.locations,
         events: res.data.events
       });
-      // console.log(this.state.data.events);
     });
   };
 
@@ -53,9 +51,6 @@ export default class Map extends Component {
 
   handleOnClickSportsFilter = event => {
     event.preventDefault();
-
-    console.log("WORKS");
-
     this.setState({
       [event.target.name]: !this.state[event.target.name]
     });
@@ -66,12 +61,12 @@ export default class Map extends Component {
     if (this.state.locations.length > 0) {
       filteredSports = this.state.locations.filter(ele => {
         return (
-          (ele.sportType === "Tennis" && this.state.tennis) ||
-          (ele.sportType === "basketball" && this.state.basketball)
+          (ele.sportType === "tennis" && this.state.tennis) ||
+          (ele.sportType === "basketball" && this.state.basketball) ||
+          (ele.sportType === "football" && this.state.basketball)
         );
       });
     }
-    console.log(filteredSports);
 
     return (
       <>
@@ -89,11 +84,14 @@ export default class Map extends Component {
               <Marker
                 longitude={el.coordinates[0]}
                 latitude={el.coordinates[1]}
-              />
+              >
+                <Pin />
+                {/* <img></img> */}
+              </Marker>
             );
           })}
         </MapGL>
-        <div className="buttonaaaaa" onClick={() => this.onClickPopUp()}>
+        <div onClick={() => this.onClickPopUp()}>
           <FormBtn />
         </div>
         <div>
@@ -104,7 +102,10 @@ export default class Map extends Component {
         </div>
         <div>
           {this.state.addLocPopup ? (
-            <FormAdd locationData={this.state.locations} />
+            <FormAdd
+              popupBoolean={this.onClickPopUp}
+              locationData={this.state.locations}
+            />
           ) : (
             ""
           )}

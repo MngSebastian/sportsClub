@@ -14,11 +14,7 @@ export class Events extends Component {
         </div>
       );
     });
-    return (
-      <div className="test">
-        <div className="proba">{events}</div>
-      </div>
-    );
+    return <div className="test">{events}</div>;
   }
 }
 

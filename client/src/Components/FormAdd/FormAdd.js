@@ -33,7 +33,7 @@ class FormAdd extends Component {
       })
       .then(response => {
         // redirect
-        console.log(response);
+        
         this.props.history.push("/sports");
 
         this.props.popupBoolean();
@@ -54,7 +54,7 @@ class FormAdd extends Component {
         (this.state.football && location.sportType === "football")
       );
     });
-    console.log(selectedLocations);
+    
 
     return (
       <div className="PopUp">
