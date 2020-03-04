@@ -129,7 +129,7 @@ class FormAdd extends Component {
               </div>
               <br />
               <button className="formBtn" type="submit">
-                Createeeeeeeee
+                Create
               </button>
             </form>
           </div>
