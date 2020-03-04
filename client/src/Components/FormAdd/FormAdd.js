@@ -5,9 +5,14 @@ import { withRouter } from "react-router-dom";
 
 class FormAdd extends Component {
   state = {
-    location: "",
+    nameOfEvent: "",
     description: "",
-    eventTime: Date.now
+    eventTime: Date.now,
+    location: "",
+    basketball: true,
+    football: true,
+    tennis: true,
+    message: ""
   };
 
   handleChange = event => {
@@ -23,23 +28,33 @@ class FormAdd extends Component {
       .post("/sports/event/add", {
         location: this.state.location,
         description: this.state.description,
-        eventTime: this.state.eventTime
+        eventTime: this.state.eventTime,
+        nameOfEvent: this.state.nameOfEvent
       })
       .then(response => {
         // redirect
-        console.log(response);
+
         this.props.history.push("/sports");
 
         this.props.popupBoolean();
       })
       .catch(err => {
         this.setState({
-          message: err.response.data.message
+          message: err
         });
       });
   };
 
   render() {
+    let selectedLocations = [];
+    selectedLocations = this.props.locationData.filter(location => {
+      return (
+        (this.state.basketball && location.sportType === "basketball") ||
+        (this.state.tennis && location.sportType === "tennis") ||
+        (this.state.football && location.sportType === "football")
+      );
+    });
+
     return (
       <div className="PopUp">
         <div className="PopUpInside">
@@ -49,7 +64,6 @@ class FormAdd extends Component {
           <div className="form">
             <form onSubmit={this.handleSubmit}>
               <label htmlFor="location"></label>
-
               <br></br>
               <label htmlFor="nameOfEvent"></label>
               <input
@@ -58,8 +72,8 @@ class FormAdd extends Component {
                 placeholder="Name Of Event"
                 name="nameOfEvent"
                 id="nameOfEvent"
-                // value={this.state.description}
-                // onChange={this.handleChange}
+                value={this.state.nameOfEvent}
+                onChange={this.handleChange}
               />
               <br></br>
               <input
@@ -72,7 +86,6 @@ class FormAdd extends Component {
                 onChange={this.handleChange}
               />
               <br></br>
-
               <input
                 type="datetime-local"
                 className="inputFields"
@@ -82,17 +95,20 @@ class FormAdd extends Component {
                 value={this.state.eventTime}
                 onChange={this.handleChange}
               />
-              <br></br>
-              <label for="cars">Choose a location</label>
 
-              <select id="cars">
-                <option value="volvo">Volvo</option>
-                <option value="saab">Saab</option>
-                <option value="mercedes">Mercedes</option>
-                <option value="audi">Audi</option>
+              <br></br>
+              <label htmlFor="location">Choose a location: </label>
+              <select id="location">
+                {selectedLocations.map(location => {
+                  return (
+                    <option value={location.name}>
+                      {location.name[0].toUpperCase()}
+                      {location.name.substring(1)}
+                    </option>
+                  );
+                })}
               </select>
               <br></br>
-
               <div>
                 <input
                   type="radio"
@@ -100,17 +116,18 @@ class FormAdd extends Component {
                   name="event"
                   value="football"
                 />
-                <label for="football">Football</label>
+                <label htmlFor="football">Football</label>
                 <input
                   type="radio"
                   id="basketball"
                   name="event"
                   value="basketball"
                 />
-                <label for="basketball">Basketball</label>
+                <label htmlFor="basketball">Basketball</label>
                 <input type="radio" id="tennis" name="event" value="tennis" />
-                <label for="huey">Tennis</label>
+                <label htmlFor="huey">Tennis</label>
               </div>
+              <br />
               <button className="formBtn" type="submit">
                 Create
               </button>

@@ -4,6 +4,7 @@ import "./Events.css";
 export class Events extends Component {
   render() {
     const events = this.props.eventData.map(event => {
+      console.log(event);
       return (
         <div
           key={event._id}
@@ -14,11 +15,7 @@ export class Events extends Component {
         </div>
       );
     });
-    return (
-      <div className="test">
-        <div className="proba">{events}</div>
-      </div>
-    );
+    return <div className="test">{events}</div>;
   }
 }
 
