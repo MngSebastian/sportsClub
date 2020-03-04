@@ -56,8 +56,8 @@ class FormAdd extends Component {
                 className="inputFields"
                 type="text"
                 placeholder="Name Of Event"
-                name="description"
-                id="description"
+                name="nameOfEvent"
+                id="event"
                 value={this.state.description}
                 onChange={this.handleChange}
               />
@@ -72,17 +72,11 @@ class FormAdd extends Component {
                 onChange={this.handleChange}
               />
               <br></br>
-              <select id="cars">
-                <option value="volvo">Volvo</option>
-                <option value="saab">Saab</option>
-                <option value="mercedes">Mercedes</option>
-                <option value="audi">Audi</option>
-              </select>
-              <br></br>
+
               <input
                 className="inputFields"
                 type="text"
-                placeholder="Event Description"
+                placeholder=""
                 name="description"
                 id="description"
                 value={this.state.description}

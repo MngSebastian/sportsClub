@@ -16,7 +16,8 @@ export default class Map extends Component {
     lng: 13.4,
     lat: 52.52,
     zoom: 10,
-    data: [],
+    locations: [],
+    events: [],
     addLocPopup: false,
     basketball: false,
     football: false,
@@ -52,9 +53,10 @@ export default class Map extends Component {
       // }
       // }
       this.setState({
-        data: res.data
+        locations: res.data.locations,
+        events: res.data.events
       });
-      console.log(this.state.data);
+      // console.log(this.state.data.events);
     });
   };
 
@@ -93,8 +95,8 @@ export default class Map extends Component {
 
   render() {
     let filteredSports = [];
-    if (this.state.data.length > 0) {
-      filteredSports = this.state.data.filter(ele => {
+    if (this.state.locations.length > 0) {
+      filteredSports = this.state.locations.filter(ele => {
         return (
           (ele.sportType === "Tennis" && this.state.tennis) ||
           (ele.sportType === "basketball" && this.state.basketball)
@@ -114,13 +116,16 @@ export default class Map extends Component {
             <SportsNavbar
               handleOnClickSportsFilter={this.handleOnClickSportsFilter}
             />
-            <Events />
+            <Events eventData={this.state.events} />
           </div>
         </div>
         {this.state.addLocPopup ? (
           <FormAdd
-            popupBoolean={this.onClickPopUp}
-            setUser={this.props.setUser}
+          // basketBoolean={this.state.basketball}
+          // tennisBoolean={this.state.tennis}
+          // footballBoolean={this.state.football}
+          // popupBoolean={this.onClickPopUp}
+          // setUser={this.props.setUser}
           />
         ) : (
           ""
