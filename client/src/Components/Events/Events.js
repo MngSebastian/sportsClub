@@ -11,12 +11,12 @@ export class Events extends Component {
           className="test555"
           // to={event._id}
         >
-          {event.nameOfEvent}
-          <br></br>
-          {event.description}
-          <br></br>
-          {event.eventTime}
-          <br></br>
+          <div>{event.nameOfEvent}</div>
+          <div>{event.description}</div>
+          <div>{event.eventTime}</div>
+          {/* <br></br> */}
+          {/* <br></br> */}
+          {/* <br></br> */}
           {/* <button className="eventBtn">See More</button> */}
         </div>
       );

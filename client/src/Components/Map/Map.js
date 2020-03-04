@@ -69,7 +69,7 @@ export default class Map extends Component {
         return (
           (ele.sportType === "tennis" && this.state.tennis) ||
           (ele.sportType === "basketball" && this.state.basketball) ||
-          (ele.sportType === "football" && this.state.basketball)
+          (ele.sportType === "football" && this.state.football)
         );
       });
     }
