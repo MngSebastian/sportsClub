@@ -6,9 +6,9 @@ export default class SportsPage extends Component {
 
   render() {
     return (
-      <>
+      <div className="MAP">
         <Map />
-      </>
+      </div>
     );
   }
 }

@@ -1,5 +1,5 @@
 import axios from "axios";
-import ReactMapGL from "react-map-gl";
+import MapGL from "react-map-gl";
 import React, { Component } from "react";
 import "./Map.css";
 
@@ -7,12 +7,11 @@ import FormBtn from "../FormBtn/FormBtn";
 import FormAdd from "../FormAdd/FormAdd";
 import SportsNavbar from "../SportsNavbar/SportsNavbar";
 import Events from "../Events/Events";
-import { Marker } from "mapbox-gl";
+import { Marker } from "react-map-gl";
 
 // const mapboxgl = require("mapbox-gl/dist/mapbox-gl.js");
-
-// mapboxgl.accessToken =
-//   "pk.eyJ1Ijoic3RpZmFtYWpzdG9yIiwiYSI6ImNrNmt4dm5wYTA1ZnQzbmxpNWd3N2F1Y3kifQ.G19vSaN3Jp--2ruqN8L_bQ";
+const TOKEN =
+  "pk.eyJ1Ijoic3RpZmFtYWpzdG9yIiwiYSI6ImNrNmt4dm5wYTA1ZnQzbmxpNWd3N2F1Y3kifQ.G19vSaN3Jp--2ruqN8L_bQ";
 
 export default class Map extends Component {
   state = {
@@ -31,37 +30,6 @@ export default class Map extends Component {
   };
 
   componentDidMount() {
-    // const map = new mapboxgl.Map({
-    //   container: this.mapContainer,
-    //   style: "mapbox://styles/mapbox/streets-v11",
-    //   center: [this.state.lng, this.state.lat],
-    //   zoom: this.state.zoom
-    // });
-
-    // let filteredSports = [];
-    // if (this.state.locations.length > 0) {
-    //   filteredSports = this.state.locations.filter(ele => {
-    //     return (
-    //       (ele.sportType === "Tennis" && this.state.tennis) ||
-    //       (ele.sportType === "basketball" && this.state.basketball)
-    //     );
-    //   });
-    // }
-    // console.log(filteredSports);
-
-    // let marker = new mapboxgl.Marker({ draggable: false });
-    // marker.setLngLat(
-    //   filteredSports.coordinates[0],
-    //   filteredSports.coordinates[1]
-    // );
-    // marker.addTo(map);
-    // this.markers.push(marker);
-    // const nav = new mapboxgl.NavigationControl();
-    // map.addControl(nav, "low-right");
-    // const geolocate = new mapboxgl.GeolocateControl({
-    //   showUserLocation: true,
-    //   trackUserLocation: true
-    // });
     this.getData();
   }
 
@@ -103,24 +71,9 @@ export default class Map extends Component {
     }
     console.log(filteredSports);
 
-    // const map = new mapboxgl.Map({
-    //   container: this.mapContainer,
-    //   style: "mapbox://styles/mapbox/streets-v11",
-    //   center: [this.state.lng, this.state.lat],
-    //   zoom: this.state.zoom
-    // });
-
-    // let marker = new mapboxgl.Marker({ draggable: false });
-    // marker.setLngLat(
-    //   filteredSports.coordinates[0],
-    //   filteredSports.coordinates[1]
-    // );
-    // marker.addTo(map);
-    // this.markers.push(marker);
-
     return (
       <>
-        <ReactMapGL
+        <MapGL
           {...this.state.viewport}
           width="100%"
           height="100%"
@@ -138,20 +91,17 @@ export default class Map extends Component {
               />
             );
           })}
-        </ReactMapGL>
-
-        {/* <div ref={el => (this.mapContainer = el)} className="mapContainer">
-          <div onClick={() => this.onClickPopUp()}>
-            <FormBtn />
-          </div>
-          <div>
-            <SportsNavbar
-              handleOnClickSportsFilter={this.handleOnClickSportsFilter}
-            />
-            <Events eventData={this.state.events} />
-          </div>
-        </div> */}
-        {this.state.addLocPopup ? <FormAdd /> : ""}
+        </MapGL>
+        <div onClick={() => this.onClickPopUp()}>
+          <FormBtn />
+        </div>
+        <div>
+          <SportsNavbar
+            handleOnClickSportsFilter={this.handleOnClickSportsFilter}
+          />
+          <Events eventData={this.state.events} />
+        </div>
+        <div>{this.state.addLocPopup ? <FormAdd /> : ""}</div>
       </>
     );
   }

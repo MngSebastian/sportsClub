@@ -1,56 +1,42 @@
 import axios from "axios";
-import "./Map.css";
+import MapGL from "react-map-gl";
 import React, { Component } from "react";
+import "./Map.css";
+
 import FormBtn from "../FormBtn/FormBtn";
 import FormAdd from "../FormAdd/FormAdd";
 import SportsNavbar from "../SportsNavbar/SportsNavbar";
 import Events from "../Events/Events";
-const mapboxgl = require("mapbox-gl/dist/mapbox-gl.js");
+import { Marker } from "react-map-gl";
 
-mapboxgl.accessToken =
+// const mapboxgl = require("mapbox-gl/dist/mapbox-gl.js");
+const TOKEN =
   "pk.eyJ1Ijoic3RpZmFtYWpzdG9yIiwiYSI6ImNrNmt4dm5wYTA1ZnQzbmxpNWd3N2F1Y3kifQ.G19vSaN3Jp--2ruqN8L_bQ";
 
 export default class Map extends Component {
   state = {
-    lng: 13.4,
-    lat: 52.52,
-    zoom: 10,
+    viewport: {
+      lng: 52.52,
+      lat: 13.4,
+      zoom: 2.5,
+      bearing: 0,
+      pitch: 0
+    },
     locations: [],
     events: [],
+    filteredSports: [],
     addLocPopup: false,
-    basketball: false,
-    football: false,
-    tennis: false,
-    coordinates: [],
-    filteredSports: []
+    basketball: true,
+    football: true,
+    tennis: true
   };
 
   componentDidMount() {
-    const map = new mapboxgl.Map({
-      container: this.mapContainer,
-      style: "mapbox://styles/mapbox/streets-v11",
-      center: [this.state.lng, this.state.lat],
-      zoom: this.state.zoom
-    });
-    // const nav = new mapboxgl.NavigationControl();
-    // map.addControl(nav, "low-right");
-    // const geolocate = new mapboxgl.GeolocateControl({
-    //   showUserLocation: true,
-    //   trackUserLocation: true
-    // });
     this.getData();
   }
 
   getData = () => {
     axios.get("/sports/all").then(res => {
-      // for (let location in res) {
-      //   if (location.sportType === "basketball" && this.state.basketball === true){
-      //     let
-      //     this.setState({
-      //       coordinates: res.data.coordinates
-      //     })
-      // }
-      // }
       this.setState({
         locations: res.data.locations,
         events: res.data.events
@@ -64,23 +50,6 @@ export default class Map extends Component {
       addLocPopup: !this.state.addLocPopup
     });
   };
-
-  // basketballData = () => {
-  //   for (location in this.state.data) {
-  //     if (location.sportType === "basketball") {
-  //       location.forEach((location) => {
-  //         console.log(location.coordinates);
-  //         // add marker to map
-  //         let marker = new mapboxgl.Marker(el)
-  //             .setLngLat([location.long, location.lat])
-  //             .setPopup(popup)
-  //             .addTo(this.map);
-
-  //         this.markers.push(marker);
-  //     });
-  //     }
-  //   }
-  // }
 
   handleOnClickSportsFilter = event => {
     event.preventDefault();
@@ -102,34 +71,45 @@ export default class Map extends Component {
         );
       });
     }
-
     console.log(filteredSports);
 
     return (
-      <div>
-        <div ref={el => (this.mapContainer = el)} className="mapContainer">
-          <div onClick={() => this.onClickPopUp()}>
-            <FormBtn />
-          </div>
-          <div>
-            <SportsNavbar
-              handleOnClickSportsFilter={this.handleOnClickSportsFilter}
-            />
-            <Events eventData={this.state.events} />
-          </div>
+      <>
+        <MapGL
+          {...this.state.viewport}
+          width="100%"
+          height="100vh"
+          mapStyle="mapbox://styles/mapbox/dark-v9"
+          onViewportChange={viewport => this.setState({ viewport: viewport })}
+          mapboxApiAccessToken={TOKEN}
+        >
+          {filteredSports.map(el => {
+            console.log(el.coordinates, "filtered marker");
+            return (
+              <Marker
+                longitude={el.coordinates[0]}
+                latitude={el.coordinates[1]}
+              />
+            );
+          })}
+        </MapGL>
+        <div className="buttonaaaaa" onClick={() => this.onClickPopUp()}>
+          <FormBtn />
         </div>
-        {this.state.addLocPopup ? (
-          <FormAdd
-            // basketBoolean={this.state.basketball}
-            // tennisBoolean={this.state.tennis}
-            // footballBoolean={this.state.football}
-            // popupBoolean={this.onClickPopUp}
-            // setUser={this.props.setUser}
+        <div>
+          <SportsNavbar
+            handleOnClickSportsFilter={this.handleOnClickSportsFilter}
           />
-        ) : (
-          ""
-        )}
-      </div>
+          <Events eventData={this.state.events} />
+        </div>
+        <div>
+          {this.state.addLocPopup ? (
+            <FormAdd locationData={this.state.locations} />
+          ) : (
+            ""
+          )}
+        </div>
+      </>
     );
   }
 }

@@ -5,9 +5,14 @@ import { withRouter } from "react-router-dom";
 
 class FormAdd extends Component {
   state = {
-    location: "",
+    nameOfEvent: "",
     description: "",
-    eventTime: Date.now
+    eventTime: Date.now,
+    location: "",
+    basketball: false,
+    football: true,
+    tennis: false,
+    message: ""
   };
 
   handleChange = event => {
@@ -23,7 +28,8 @@ class FormAdd extends Component {
       .post("/sports/event/add", {
         location: this.state.location,
         description: this.state.description,
-        eventTime: this.state.eventTime
+        eventTime: this.state.eventTime,
+        nameOfEvent: this.state.nameOfEvent
       })
       .then(response => {
         // redirect
@@ -34,12 +40,22 @@ class FormAdd extends Component {
       })
       .catch(err => {
         this.setState({
-          message: err.response.data.message
+          message: err
         });
       });
   };
 
   render() {
+    let selectedLocations = [];
+    selectedLocations = this.props.locationData.filter(location => {
+      return (
+        (this.state.basketball && location.sportType === "basketball") ||
+        (this.state.tennis && location.sportType === "tennis") ||
+        (this.state.football && location.sportType === "football")
+      );
+    });
+    console.log(selectedLocations);
+
     return (
       <div className="PopUp">
         <div className="PopUpInside">
@@ -49,28 +65,28 @@ class FormAdd extends Component {
           <div className="form">
             <form onSubmit={this.handleSubmit}>
               <label htmlFor="location"></label>
+              <br></br>
+              <label htmlFor="nameOfEvent"></label>
               <input
                 className="inputFields"
                 type="text"
-                autoComplete="off"
-                placeholder="Event Location"
-                id="location"
-                name="location"
-                value={this.state.location}
+                placeholder="Name Of Event"
+                name="nameOfEvent"
+                id="nameOfEvent"
+                value={this.state.nameOfEvent}
                 onChange={this.handleChange}
               />
               <br></br>
-              <label htmlFor="description"></label>
               <input
                 className="inputFields"
                 type="text"
-                placeholder="Event Description"
+                placeholder="Description"
                 name="description"
                 id="description"
                 value={this.state.description}
                 onChange={this.handleChange}
               />
-              <br />
+              <br></br>
               <input
                 type="datetime-local"
                 className="inputFields"
@@ -80,7 +96,39 @@ class FormAdd extends Component {
                 value={this.state.eventTime}
                 onChange={this.handleChange}
               />
+
               <br></br>
+              <label htmlFor="location">Choose a location: </label>
+              <select id="location">
+                {selectedLocations.map(location => {
+                  return (
+                    <option value={location.name}>
+                      {location.name[0].toUpperCase()}
+                      {location.name.substring(1)}
+                    </option>
+                  );
+                })}
+              </select>
+              <br></br>
+              <div>
+                <input
+                  type="radio"
+                  id="football"
+                  name="event"
+                  value="football"
+                />
+                <label htmlFor="football">Football</label>
+                <input
+                  type="radio"
+                  id="basketball"
+                  name="event"
+                  value="basketball"
+                />
+                <label htmlFor="basketball">Basketball</label>
+                <input type="radio" id="tennis" name="event" value="tennis" />
+                <label htmlFor="huey">Tennis</label>
+              </div>
+              <br />
               <button className="formBtn" type="submit">
                 Create
               </button>
