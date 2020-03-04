@@ -7,6 +7,7 @@ import FormBtn from "../FormBtn/FormBtn";
 import FormAdd from "../FormAdd/FormAdd";
 import SportsNavbar from "../SportsNavbar/SportsNavbar";
 import Events from "../Events/Events";
+import EventDetails from "../EventDetails/EventDetails";
 import Pin from "./Pin";
 
 const TOKEN =
@@ -25,7 +26,8 @@ export default class Map extends Component {
     events: [],
     filteredSports: [],
     addLocPopup: false,
-    seeEvents: false,
+    seeEventsList: true,
+    seeEventDetails: null,
     basketball: true,
     football: true,
     tennis: true
@@ -34,6 +36,13 @@ export default class Map extends Component {
   componentDidMount() {
     this.getData();
   }
+
+  passEventDetails = event => {
+    this.setState({
+      seeEventDetails: event
+    });
+    console.log(this.state.seeEventDetails);
+  };
 
   getData = () => {
     axios.get("/sports/all").then(res => {
@@ -51,7 +60,7 @@ export default class Map extends Component {
   };
   onClickEvents = () => {
     this.setState({
-      seeEvents: !this.state.seeEvents
+      seeEventsList: !this.state.seeEventsList
     });
   };
 
@@ -73,7 +82,7 @@ export default class Map extends Component {
         );
       });
     }
-    console.log(this.state.addLocPopup);
+
     return (
       <>
         <MapGL
@@ -85,13 +94,10 @@ export default class Map extends Component {
           mapboxApiAccessToken={TOKEN}
         >
           {filteredSports.map(el => {
-            {
-              /* console.log(el.coordinates, "filtered marker"); */
-            }
             return (
               <Marker
-                longitude={el.coordinates[0]}
-                latitude={el.coordinates[1]}
+                longitude={el.coordinates[1]}
+                latitude={el.coordinates[0]}
               >
                 <Pin />
                 {/* <img></img> */}
@@ -109,8 +115,16 @@ export default class Map extends Component {
           />
         </div>
         <div>
-          {this.state.seeEvents ? (
+          {this.state.seeEventDetails ? (
+            <EventDetails eventDetails={this.state.seeEventDetails} />
+          ) : (
+            ""
+          )}
+        </div>
+        <div>
+          {this.state.seeEventsList ? (
             <Events
+              passEventDetails={this.passEventDetails}
               setUser={this.props.setUser}
               eventData={this.state.events}
             />

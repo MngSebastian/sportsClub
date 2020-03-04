@@ -23,21 +23,18 @@ class FormAdd extends Component {
 
   handleRadio = click => {
     if (click.target.value === "football") {
-      console.log("football");
       this.setState({
         basketball: false,
         football: true,
         tennis: false
       });
     } else if (click.target.value === "basketball") {
-      console.log("basketball");
       this.setState({
         basketball: true,
         football: false,
         tennis: false
       });
     } else if (click.target.value === "tennis") {
-      console.log("tennis");
       this.setState({
         basketball: false,
         football: false,
@@ -60,7 +57,7 @@ class FormAdd extends Component {
         // redirect
 
         this.props.history.push("/sports");
-        console.log(this.props.popupBoolean, "inside axios");
+
         this.props.popupBoolean();
         this.props.updateEventList();
       })
