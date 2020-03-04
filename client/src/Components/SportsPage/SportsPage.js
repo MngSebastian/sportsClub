@@ -7,7 +7,7 @@ export default class SportsPage extends Component {
   render() {
     return (
       <div className="MAP">
-        <Map />
+        <Map setUser={this.props.setUser} user={this.props.user} />
       </div>
     );
   }

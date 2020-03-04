@@ -25,6 +25,7 @@ export default class Map extends Component {
     events: [],
     filteredSports: [],
     addLocPopup: false,
+    seeEvents: false,
     basketball: true,
     football: true,
     tennis: true
@@ -46,6 +47,11 @@ export default class Map extends Component {
   onClickPopUp = () => {
     this.setState({
       addLocPopup: !this.state.addLocPopup
+    });
+  };
+  onClickEvents = () => {
+    this.setState({
+      seeEvents: !this.state.seeEvents
     });
   };
 
@@ -96,11 +102,19 @@ export default class Map extends Component {
         </div>
         <div>
           <SportsNavbar
+            popupBoolean={this.onClickEvents}
             handleOnClickSportsFilter={this.handleOnClickSportsFilter}
           />
-          <Events eventData={this.state.events} />
         </div>
         <div>
+          {this.state.seeEvents ? (
+            <Events
+              setUser={this.props.setUser}
+              eventData={this.state.events}
+            />
+          ) : (
+            ""
+          )}
           {this.state.addLocPopup ? (
             <FormAdd
               popupBoolean={this.onClickPopUp}
