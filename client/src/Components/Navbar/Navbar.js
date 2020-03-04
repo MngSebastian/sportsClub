@@ -4,6 +4,10 @@ import { Link } from "react-router-dom";
 import "./Navbar.css";
 import Login from "../Login/Login";
 import Signup from "../Signup/Signup";
+import { toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
+
+toast.configure();
 
 class Navbar extends React.Component {
   state = {
@@ -11,9 +15,18 @@ class Navbar extends React.Component {
     PopUpSignup: false
   };
 
+  notifyLogout = () => {
+    toast.success("Successfull logout", {
+      position: toast.POSITION.TOP_CENTER,
+      autoClose: 3000,
+      hideProgressBar: true
+    });
+  };
+
   logout = () => {
     axios.delete("/auth/logout").then(() => {
       this.props.setUser(null);
+      this.notifyLogout()
     });
   };
 

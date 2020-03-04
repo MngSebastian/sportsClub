@@ -2,6 +2,10 @@ import React, { Component } from "react";
 import axios from "axios";
 import "./Login.css";
 import { withRouter } from "react-router-dom";
+import { toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
+
+toast.configure();
 
 class Login extends Component {
   state = {
@@ -9,6 +13,22 @@ class Login extends Component {
     password: "",
     message: "",
     redirect: false
+  };
+
+  notifySuccess = () => {
+    toast.success("Successfull login", {
+      position: toast.POSITION.TOP_CENTER,
+      autoClose: 3000,
+      hideProgressBar: true
+    });
+  };
+
+  notifyErr = () => {
+    toast.error(this.state.message, {
+      position: toast.POSITION.TOP_CENTER,
+      autoClose: 3000,
+      hideProgressBar: true
+    });
   };
 
   handleChange = event => {
@@ -27,19 +47,19 @@ class Login extends Component {
       })
       .then(response => {
         // redirect
-        this.props.history.push("/");
-
-        // update state for user in <App/>
+        // this.props.history.push("/");
 
         this.props.setUser(response.data);
         this.props.history.push("/");
 
         this.props.popupBoolean();
+        this.notifySuccess();
       })
       .catch(err => {
         this.setState({
           message: err.response.data.message
         });
+        this.notifyErr();
       });
   };
 
@@ -80,7 +100,7 @@ class Login extends Component {
               </button>
             </form>
           </div>
-          {this.state.message && <p>{this.state.message}</p>}
+          {/* {this.state.message && <p>{this.state.message}</p>} */}
         </div>
       </div>
     );
