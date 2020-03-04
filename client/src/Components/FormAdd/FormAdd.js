@@ -9,9 +9,9 @@ class FormAdd extends Component {
     description: "",
     eventTime: Date.now,
     location: "",
-    basketball: false,
+    basketball: true,
     football: true,
-    tennis: false,
+    tennis: true,
     message: ""
   };
 
@@ -33,7 +33,7 @@ class FormAdd extends Component {
       })
       .then(response => {
         // redirect
-        
+
         this.props.history.push("/sports");
 
         this.props.popupBoolean();
@@ -54,7 +54,6 @@ class FormAdd extends Component {
         (this.state.football && location.sportType === "football")
       );
     });
-    
 
     return (
       <div className="PopUp">
@@ -130,7 +129,7 @@ class FormAdd extends Component {
               </div>
               <br />
               <button className="formBtn" type="submit">
-                Create
+                Createeeeeeeee
               </button>
             </form>
           </div>
