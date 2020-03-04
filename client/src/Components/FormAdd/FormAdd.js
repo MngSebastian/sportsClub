@@ -21,6 +21,31 @@ class FormAdd extends Component {
     });
   };
 
+  handleRadio = click => {
+    if (click.target.value === "football") {
+      console.log("football");
+      this.setState({
+        basketball: false,
+        football: true,
+        tennis: false
+      });
+    } else if (click.target.value === "basketball") {
+      console.log("basketball");
+      this.setState({
+        basketball: true,
+        football: false,
+        tennis: false
+      });
+    } else if (click.target.value === "tennis") {
+      console.log("tennis");
+      this.setState({
+        basketball: false,
+        football: false,
+        tennis: true
+      });
+    }
+  };
+
   handleSubmit = event => {
     event.preventDefault();
 
@@ -98,7 +123,7 @@ class FormAdd extends Component {
 
               <br></br>
               <label htmlFor="location">Choose a location: </label>
-              <select id="location">
+              <select name="location" id="location">
                 {selectedLocations.map(location => {
                   return (
                     <option value={location.name}>
@@ -110,22 +135,30 @@ class FormAdd extends Component {
               </select>
               <br></br>
               <div>
+                <label htmlFor="football">Football</label>
                 <input
+                  onClick={this.handleRadio}
                   type="radio"
                   id="football"
                   name="event"
                   value="football"
                 />
-                <label htmlFor="football">Football</label>
+                <label htmlFor="basketball">Basketball</label>
                 <input
+                  onClick={this.handleRadio}
                   type="radio"
                   id="basketball"
                   name="event"
                   value="basketball"
                 />
-                <label htmlFor="basketball">Basketball</label>
-                <input type="radio" id="tennis" name="event" value="tennis" />
-                <label htmlFor="huey">Tennis</label>
+                <label htmlFor="tennis">Tennis</label>
+                <input
+                  onClick={this.handleRadio}
+                  type="radio"
+                  id="tennis"
+                  name="event"
+                  value="tennis"
+                />
               </div>
               <br />
               <button className="formBtn" type="submit">
