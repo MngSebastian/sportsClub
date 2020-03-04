@@ -62,6 +62,7 @@ class FormAdd extends Component {
         this.props.history.push("/sports");
         console.log(this.props.popupBoolean, "inside axios");
         this.props.popupBoolean();
+        this.props.updateEventList();
       })
       .catch(err => {
         this.setState({

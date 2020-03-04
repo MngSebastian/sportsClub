@@ -15,9 +15,9 @@ const TOKEN =
 export default class Map extends Component {
   state = {
     viewport: {
-      lng: 52.52,
-      lat: 13.4,
-      zoom: 2.5,
+      longitude: 13.4,
+      latitude: 52.52,
+      zoom: 8,
       bearing: 0,
       pitch: 0
     },
@@ -119,6 +119,7 @@ export default class Map extends Component {
           )}
           {this.state.addLocPopup ? (
             <FormAdd
+              updateEventList={this.getData}
               popupBoolean={this.onClickPopUp}
               locationData={this.state.locations}
             />
