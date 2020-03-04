@@ -37,7 +37,7 @@
   cursor: pointer;
 }
 .vl {
-  border-left: 2px solid rgba(189, 195, 199, 1);
+  border-left: 2px solid rgba(189, 195, 199, 0.2);
   height: 40px;
 }
 .red {

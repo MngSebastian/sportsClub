@@ -11,11 +11,11 @@ export class Events extends Component {
           className="test555"
           // to={event._id}
         >
-          {event.description} {event.eventTime}
+          {event.description} {event.nameOfEvent} {event.eventTime}
         </div>
       );
     });
-    return <div className="test">{events}</div>;
+    return <div className="events">{events}</div>;
   }
 }
 

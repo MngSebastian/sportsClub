@@ -67,7 +67,7 @@ export default class Map extends Component {
         );
       });
     }
-
+    console.log(this.state.addLocPopup);
     return (
       <>
         <MapGL

@@ -1,8 +1,10 @@
-.test {
+.events {
   position: absolute;
   z-index: 3000;
   top: 15vh;
   width: 25vw;
-  height: 84.7vh;
-  background-color: rgba(0, 0, 0, 0.1);
+  /* height: 84.7vh; */
+
+  height: 82vh;
+  background-color: rgba(255, 255, 255, 0.2);
 }

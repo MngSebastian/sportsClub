@@ -35,7 +35,7 @@ class FormAdd extends Component {
         // redirect
 
         this.props.history.push("/sports");
-
+        console.log(this.props.popupBoolean, "inside axios");
         this.props.popupBoolean();
       })
       .catch(err => {
