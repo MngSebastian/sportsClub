@@ -25,7 +25,13 @@ export class App extends React.Component {
 
         <Route exact path="/" render={props => <MainPage />} />
 
-        <Route exact path="/sports" render={props => <SportsPage />} />
+        <Route
+          exact
+          path="/sports"
+          render={props => (
+            <SportsPage setUser={this.setUser} user={this.state.user} />
+          )}
+        />
 
         <Footer></Footer>
       </div>

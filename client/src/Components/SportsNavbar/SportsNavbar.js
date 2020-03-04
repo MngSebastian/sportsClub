@@ -4,7 +4,7 @@ export class SportsNavbar extends Component {
   render() {
     return (
       <div className="sportsNavbar">
-        <div className="sportsNavbarItem">
+        <div onClick={this.props.popupBoolean} className="sportsNavbarItem">
           <button>Events</button>
         </div>
         <div className="vl"></div>
