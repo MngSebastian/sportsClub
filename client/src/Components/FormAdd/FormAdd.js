@@ -51,15 +51,15 @@ class FormAdd extends Component {
               <label htmlFor="location"></label>
 
               <br></br>
-              <label htmlFor="description"></label>
+              <label htmlFor="nameOfEvent"></label>
               <input
                 className="inputFields"
                 type="text"
                 placeholder="Name Of Event"
                 name="nameOfEvent"
-                id="event"
-                value={this.state.description}
-                onChange={this.handleChange}
+                id="nameOfEvent"
+                // value={this.state.description}
+                // onChange={this.handleChange}
               />
               <br></br>
               <input
@@ -74,15 +74,6 @@ class FormAdd extends Component {
               <br></br>
 
               <input
-                className="inputFields"
-                type="text"
-                placeholder=""
-                name="description"
-                id="description"
-                value={this.state.description}
-                onChange={this.handleChange}
-              />
-              <input
                 type="datetime-local"
                 className="inputFields"
                 placeholder="Event Time"
@@ -92,7 +83,34 @@ class FormAdd extends Component {
                 onChange={this.handleChange}
               />
               <br></br>
+              <label for="cars">Choose a location</label>
 
+              <select id="cars">
+                <option value="volvo">Volvo</option>
+                <option value="saab">Saab</option>
+                <option value="mercedes">Mercedes</option>
+                <option value="audi">Audi</option>
+              </select>
+              <br></br>
+
+              <div>
+                <input
+                  type="radio"
+                  id="football"
+                  name="event"
+                  value="football"
+                />
+                <label for="football">Football</label>
+                <input
+                  type="radio"
+                  id="basketball"
+                  name="event"
+                  value="basketball"
+                />
+                <label for="basketball">Basketball</label>
+                <input type="radio" id="tennis" name="event" value="tennis" />
+                <label for="huey">Tennis</label>
+              </div>
               <button className="formBtn" type="submit">
                 Create
               </button>
