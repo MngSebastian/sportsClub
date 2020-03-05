@@ -4,6 +4,11 @@ import "./EventDetials.css";
 export default class EventDetails extends Component {
   state = {};
 
+  
+  
+  
+  
+  
   render() {
     return (
       <div className="event-details">
