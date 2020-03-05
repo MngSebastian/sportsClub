@@ -32,14 +32,20 @@ export default class EventDetails extends Component {
             </div>
 
             <div className="EventInfo">
-              <div className="info">
-                <p>Organizer: {this.props.eventDetails.creator.username}</p>
-                <p>Location: {this.props.eventDetails.location}</p>
+              <div className="location">
+                <p>
+                  Location:<br></br>
+                  {this.props.eventDetails.location}
+                </p>
               </div>
               <div className="info description">
                 <p>
                   {" "}
                   Description:<br></br> {this.props.eventDetails.description}
+                </p>
+                <p>
+                  Organizer: <br></br>
+                  {this.props.eventDetails.creator.username}
                 </p>
               </div>
 
