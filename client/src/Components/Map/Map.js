@@ -9,6 +9,11 @@ import SportsNavbar from "../SportsNavbar/SportsNavbar";
 import Events from "../Events/Events";
 import EventDetails from "../EventDetails/EventDetails";
 import Pin from "./Pin";
+import { withRouter } from "react-router-dom";
+import { toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
+
+toast.configure();
 
 const TOKEN =
   "pk.eyJ1Ijoic3RpZmFtYWpzdG9yIiwiYSI6ImNrNmt4dm5wYTA1ZnQzbmxpNWd3N2F1Y3kifQ.G19vSaN3Jp--2ruqN8L_bQ";
@@ -24,6 +29,7 @@ export default class Map extends Component {
     },
     locations: [],
     events: [],
+    usersJoining: [],
     filteredSports: [],
     addLocPopup: false,
     seeEventsList: true,
@@ -31,6 +37,14 @@ export default class Map extends Component {
     basketball: true,
     football: true,
     tennis: true
+  };
+
+  notifySuccess = () => {
+    toast.success("You joined this event", {
+      position: toast.POSITION.TOP_CENTER,
+      autoClose: 3000,
+      hideProgressBar: true
+    });
   };
 
   componentDidMount() {
@@ -44,10 +58,20 @@ export default class Map extends Component {
     // console.log(this.state.seeEventDetails);
   };
 
-  clearEventDetails = cancel => {
+  clearEventDetails = () => {
     this.setState({
       seeEventDetails: null
     });
+  };
+
+  jointEvent = () => {
+    axios
+      .post("/sports/event/join", {
+        id: this.state.seeEventDetails._id
+      })
+      .then(res => {
+        this.notifySuccess();
+      });
   };
 
   getData = () => {
