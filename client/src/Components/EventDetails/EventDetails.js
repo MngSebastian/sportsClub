@@ -12,7 +12,7 @@ export default class EventDetails extends Component {
     const users = this.props.eventDetails.usersJoining.map(user => {
       return <div>{user.username}</div>;
     });
-
+    console.log(this.props.eventDetails);
     return (
       <div>
         <div className="eventDetails">
@@ -32,7 +32,10 @@ export default class EventDetails extends Component {
             </div>
 
             <div className="EventInfo">
-              <div className="info"></div>
+              <div className="info">
+                <p>Organizer: {this.props.eventDetails.creator.username}</p>
+                <p>Location: {this.props.eventDetails.location}</p>
+              </div>
               <div className="info description">
                 <p>
                   {" "}
@@ -40,9 +43,7 @@ export default class EventDetails extends Component {
                 </p>
               </div>
 
-              <div className="info time">
-                {this.props.eventDetails.eventTime}
-              </div>
+              <div className="info time">{eventTime}</div>
             </div>
             <div className="asd">
               <div className="BtnDiv">
