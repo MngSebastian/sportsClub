@@ -29,58 +29,42 @@ export default class EventDetails extends Component {
                   <p>{users}</p>
                 </div>
               </div>
+            </div>
 
-              <div className="EventInfo">
-                <div className="info"></div>
-                <div className="info description">
-                  <p>
-                    {" "}
-                    Description:<br></br> {this.props.eventDetails.description}
-                  </p>
-                </div>
-
-                <div className="info time">
-                  {this.props.eventDetails.eventTime}
-                </div>
+            <div className="EventInfo">
+              <div className="info"></div>
+              <div className="info description">
+                <p>
+                  {" "}
+                  Description:<br></br> {this.props.eventDetails.description}
+                </p>
               </div>
-              <div className="asd">
-                <div className="BtnDiv">
-                  <div className="spaceForHover">
-                    <button className="btn">Join</button>
-                  </div>
-                  <div className="spaceForHover">
-                    <button
-                      className="btn"
-                      onClick={() => {
-                        this.props.clearEventDetails();
-                      }}
-                    >
-                      Go Back
-                    </button>
-                  </div>
+
+              <div className="info time">
+                {this.props.eventDetails.eventTime}
+              </div>
+            </div>
+            <div className="asd">
+              <div className="BtnDiv">
+                <div className="spaceForHover">
+                  <button onClick={this.props.joinEvent} className="btn">
+                    Join
+                  </button>
+                </div>
+                <div className="spaceForHover">
+                  <button
+                    className="btn"
+                    onClick={() => {
+                      this.props.clearEventDetails();
+                    }}
+                  >
+                    Go Back
+                  </button>
                 </div>
               </div>
             </div>
-            <p>
-              {" "}
-              Description:<br></br> {this.props.eventDetails.description}
-            </p>
-            {/* asd */}
-            <p>
-              <br></br>
-              {eventTime}
-            </p>
           </div>
         </div>
-        <p>asd</p>
-        <button onClick={this.props.joinEvent}>Join</button>
-        <button
-          onClick={() => {
-            this.props.clearEventDetails();
-          }}
-        >
-          Go Back
-        </button>
       </div>
     );
   }
