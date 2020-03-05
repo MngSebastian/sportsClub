@@ -42,20 +42,40 @@ router.post("/event/add", (req, res, next) => {
     });
 });
 
-//CREATE LOCATION
-router.post("/location/add", (req, res, next) => {
-  const { name, coordinates, description, sportType } = req.body;
+//JOIN USER TO THE EVENT
+router.get("/event/join", (req, res) => {
 
-  Location.create({
-    name,
-    coordinates,
-    description,
-    sportType
-  }).catch(err => {
-    res.status(500).json({
-      message: err.message
+  const id = req.body.id
+  Event.findById(id)
+    .then(events => {
+      return events;
+    })
+    .then(events => {
+      Location.find().then(locations => {
+        res.json({ locations, events });
+      });
+    })
+    .catch(err => {
+      res.status(500).json({
+        message: err.message
+      });
     });
-  });
 });
+
+//CREATE LOCATION
+// router.post("/location/add", (req, res, next) => {
+//   const { name, coordinates, description, sportType } = req.body;
+
+//   Location.create({
+//     name,
+//     coordinates,
+//     description,
+//     sportType
+//   }).catch(err => {
+//     res.status(500).json({
+//       message: err.message
+//     });
+//   });
+// });
 
 module.exports = router;
