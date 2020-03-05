@@ -58,20 +58,10 @@ export default class Map extends Component {
     // console.log(this.state.seeEventDetails);
   };
 
-  clearEventDetails = () => {
+  clearEventDetails = cancel => {
     this.setState({
       seeEventDetails: null
     });
-  };
-
-  jointEvent = () => {
-    axios
-      .post("/sports/event/join", {
-        id: this.state.seeEventDetails._id
-      })
-      .then(res => {
-        this.notifySuccess();
-      });
   };
 
   getData = () => {
