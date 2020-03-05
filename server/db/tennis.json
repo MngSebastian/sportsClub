@@ -1,0 +1,27 @@
+[
+  {
+    "name": "Berliner Tennis Club 1904 Grün-Gold e.V.",
+    "coordinates": "[52.480402, 13.381255]",
+    "sportType": "tennis"
+  },
+  {
+    "name": "Rot-Weiss Tennis Club",
+    "coordinates": "[52.489469, 13.256141]",
+    "sportType": "tennis"
+  },
+  {
+    "name": "Tennis im Betriebsverband",
+    "coordinates": "[52.423902, 13.370100]",
+    "sportType": "tennis"
+  },
+  {
+    "name": "Tennis Association Brandenburg e.V.",
+    "coordinates": "[52.459082, 13.265923]",
+    "sportType": "tennis"
+  },
+  {
+    "name": "Tennis club SCC Berlin e.V.",
+    "coordinates": "[52.504953, 13.264455]",
+    "sportType": "tennis"
+  }
+]

@@ -6,10 +6,10 @@
   text-align: center;
   height: 35vh;
 }
-.inputFields {
+.inputField {
   border: none;
   outline: none;
-  margin-top: 26px;
+  margin-top: 6px;
   width: 12vw;
   height: 4vh;
   border-radius: 15px;
@@ -17,21 +17,21 @@
   border: 1.2px solid rgba(230, 126, 34, 1);
   background: none;
 }
-.inputFields:hover {
+.inputField:hover {
   width: 15vw;
   transition: 0.2s;
   border: 1.2px solid rgba(211, 84, 0, 1);
   background: none;
 }
-.formBtn {
-  margin-top: 4vw;
+.formBtnEvent {
+  margin-top: 1.5vw;
   /* border: 1.2px solid red; */
   height: 5vh;
   width: 7vw;
   border-radius: 15px;
   font-size: 20px;
 }
-.formBtn:hover {
+.formBtnEvent:hover {
   background-color: rgba(211, 84, 0, 1);
   cursor: pointer;
   color: white;
@@ -41,7 +41,7 @@
 }
 /* -----------Media Query----------- */
 @media only screen and (max-width: 376px) {
-  .inputFields {
+  .inputField {
     border: none;
     outline: none;
     margin-top: 26px;
@@ -52,13 +52,13 @@
     border: 1.2px solid rgba(230, 126, 34, 1);
     background: none;
   }
-  .inputFields:hover {
+  .inputField:hover {
     width: 55vw;
     transition: 0.2s;
     border: 1.2px solid rgba(211, 84, 0, 1);
     background: none;
   }
-  .formBtn {
+  .formBtnEvent {
     margin-top: 4vw;
     /* border: 1.2px solid red; */
     height: 5vh;
@@ -66,7 +66,7 @@
     border-radius: 15px;
     font-size: 20px;
   }
-  .formBtn:hover {
+  .formBtnEvent:hover {
     background-color: rgba(211, 84, 0, 1);
     cursor: pointer;
     color: white;
