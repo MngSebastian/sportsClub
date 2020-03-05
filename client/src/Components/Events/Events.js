@@ -8,7 +8,7 @@ export class Events extends Component {
       let created = event.eventTime;
       const eventTime = moment(created).fromNow();
 
-      console.log(event);
+      
 
       return (
         <div
