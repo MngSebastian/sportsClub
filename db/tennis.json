@@ -1,52 +1,52 @@
 [
   {
     "name": "International Tennis Club Berlin",
-    "coordinates": "[52.563595, 13.303951]",
+    "coordinates": [52.563595, 13.303951],
     "sportType": "tennis"
   },
   {
     "name": "Tennisfreunde Berlin-Mitte e.V.",
-    "coordinates": "[52.542094, 13.368153]",
+    "coordinates": [52.542094, 13.368153],
     "sportType": "tennis"
   },
   {
     "name": "TCW Tennis Center",
-    "coordinates": "[52.569856, 13.458447]",
+    "coordinates": [52.569856, 13.458447],
     "sportType": "tennis"
   },
   {
     "name": "Tennis-Club Berlin-Weißensee",
-    "coordinates": "[52.559004, 13.484883]",
+    "coordinates": [52.559004, 13.484883],
     "sportType": "tennis"
   },
   {
     "name": "SV Berlin breweries e.V.",
-    "coordinates": "[52.536875, 13.466823]",
+    "coordinates": [52.536875, 13.466823],
     "sportType": "tennis"
   },
   {
     "name": "Berliner Tennis Club 1904 Grün-Gold e.V.",
-    "coordinates": "[52.480402, 13.381255]",
+    "coordinates": [52.480402, 13.381255],
     "sportType": "tennis"
   },
   {
     "name": "Rot-Weiss Tennis Club",
-    "coordinates": "[52.489469, 13.256141]",
+    "coordinates": [52.489469, 13.256141],
     "sportType": "tennis"
   },
   {
     "name": "Tennis im Betriebsverband",
-    "coordinates": "[52.423902, 13.370100]",
+    "coordinates": [52.423902, 13.3701],
     "sportType": "tennis"
   },
   {
     "name": "Tennis Association Brandenburg e.V.",
-    "coordinates": "[52.459082, 13.265923]",
+    "coordinates": [52.459082, 13.265923],
     "sportType": "tennis"
   },
   {
     "name": "Tennis club SCC Berlin e.V.",
-    "coordinates": "[52.504953, 13.264455]",
+    "coordinates": [52.504953, 13.264455],
     "sportType": "tennis"
   }
 ]
