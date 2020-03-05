@@ -1,12 +1,31 @@
 import React, { Component } from "react";
 import axios from "axios";
-// import "../Login/Login.css";
+import { toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
+
+toast.configure();
 
 export default class Signup extends Component {
   state = {
     username: "",
     password: "",
     message: ""
+  };
+
+  notifySuccess = () => {
+    toast.success("Successfull signeup", {
+      position: toast.POSITION.TOP_CENTER,
+      autoClose: 3000,
+      hideProgressBar: true
+    });
+  };
+
+  notifyErr = () => {
+    toast.error(this.state.message, {
+      position: toast.POSITION.TOP_CENTER,
+      autoClose: 3000,
+      hideProgressBar: true
+    });
   };
 
   handleChange = event => {
@@ -24,15 +43,14 @@ export default class Signup extends Component {
         password: this.state.password
       })
       .then(response => {
-        // redirect
-        // this.props.history.push("/");
-        // update state for user in <App/>
         this.props.setUser(response.data);
+        this.notifySuccess();
       })
       .catch(err => {
         this.setState({
           message: err.response.data.message
         });
+        this.notifyErr();
       });
   };
 
@@ -75,7 +93,6 @@ export default class Signup extends Component {
             </div>
           </div>
         </div>
-        {this.state.message && <p>{this.state.message}</p>}
       </>
     );
   }

@@ -2,6 +2,10 @@ import React, { Component } from "react";
 import axios from "axios";
 import "./FormAdd.css";
 import { withRouter } from "react-router-dom";
+import { toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
+
+toast.configure();
 
 class FormAdd extends Component {
   state = {
@@ -13,6 +17,14 @@ class FormAdd extends Component {
     // football: true,
     // tennis: true,
     message: ""
+  };
+
+  notifySuccess = () => {
+    toast.success("Event created", {
+      position: toast.POSITION.TOP_CENTER,
+      autoClose: 3000,
+      hideProgressBar: true
+    });
   };
 
   handleChange = event => {
@@ -59,6 +71,7 @@ class FormAdd extends Component {
         this.props.history.push("/sports");
 
         this.props.popupBoolean();
+        this.notifySuccess();
         this.props.updateEventList();
       })
       .catch(err => {
