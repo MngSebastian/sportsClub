@@ -1,52 +1,52 @@
 [
   {
     "name": "Metro Fußballhimmel",
-    "coordinates": "[52.510969, 13.443961]",
+    "coordinates": [52.510969, 13.443961],
     "sportType": "football"
   },
   {
     "name": "Football Field am Anzengruberstraße",
-    "coordinates": "[52.485897, 13.441643]",
+    "coordinates": [52.485897, 13.441643],
     "sportType": "football"
   },
   {
     "name": "Sportanlagen mit Fußballplatz",
-    "coordinates": "[52.534999, 13.391025]",
+    "coordinates": [52.534999, 13.391025],
     "sportType": "football"
   },
   {
     "name": "Fußballfeld am Lehrterstraße",
-    "coordinates": "[52.534479, 13.359170]",
+    "coordinates": [52.534479, 13.35917],
     "sportType": "football"
   },
   {
     "name": "Football Court am Krautstraße",
-    "coordinates": "[52.515334, 13.426223]",
+    "coordinates": [52.515334, 13.426223],
     "sportType": "football"
   },
   {
     "name": "Sportanlagen mit Fußballplatz",
-    "coordinates": "[52.537343, 13.392778",
+    "coordinates": [52.537343, 13.392778],
     "sportType": "football"
   },
   {
     "name": "Football am Niederschoeneweide",
-    "coordinates": "[52.515334, 13.426223]",
+    "coordinates": [52.515334, 13.426223],
     "sportType": "football"
   },
   {
     "name": "Fußballplatz am Boyenstraße Str.",
-    "coordinates": "[52.550190, 13.370397",
+    "coordinates": [52.55019, 13.370397],
     "sportType": "football"
   },
   {
     "name": "Sportplatz BSC Eintracht/Südring",
-    "coordinates": "[52.493894, 13.399274",
+    "coordinates": [52.493894, 13.399274],
     "sportType": "football"
   },
   {
     "name": "Fußballplatz am Planetarium",
-    "coordinates": "[52.544074, 13.430970",
+    "coordinates": [52.544074, 13.43097],
     "sportType": "football"
   }
 ]

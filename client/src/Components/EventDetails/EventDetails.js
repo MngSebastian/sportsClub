@@ -13,32 +13,47 @@ export default class EventDetails extends Component {
           </div>
           <div>
             <div className="usersJoining">
-              <div className="user">
-                <p>user42</p>
+              <div className="heading1">
+                <p>People Joining</p>
+              </div>
+              <div className="scrollDiv">
+                <div className="user">
+                  <p>bannana</p>
+                </div>
               </div>
             </div>
+
             <div className="EventInfo">
-              <p>
-                {" "}
-                Description:<br></br> {this.props.eventDetails.description}
-              </p>
-              {/* asd */}
-              <p>
-                <br></br>
+              <div className="info"></div>
+              <div className="info description">
+                <p>
+                  {" "}
+                  Description:<br></br> {this.props.eventDetails.description}
+                </p>
+              </div>
+
+              <div className="info time">
                 {this.props.eventDetails.eventTime}
-              </p>
+              </div>
             </div>
-            <button>Join</button>
+            <div className="asd">
+              <div className="BtnDiv">
+                <div className="spaceForHover">
+                  <button className="btn">Join</button>
+                </div>
+                <div className="spaceForHover">
+                  <button
+                    className="btn"
+                    onClick={() => {
+                      this.props.clearEventDetails();
+                    }}
+                  >
+                    Go Back
+                  </button>
+                </div>
+              </div>
+            </div>
           </div>
-          <p>asd</p>
-          <button>Join</button>
-          <button
-            onClick={() => {
-              this.props.clearEventDetails();
-            }}
-          >
-            Go Back
-          </button>
         </div>
       </div>
     );
