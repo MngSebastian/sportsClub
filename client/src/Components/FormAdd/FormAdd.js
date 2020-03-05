@@ -12,10 +12,10 @@ class FormAdd extends Component {
     nameOfEvent: "",
     description: "",
     eventTime: Date.now,
-    location: "",
-    basketball: true,
-    football: true,
-    tennis: true,
+    // location: "",
+    // basketball: true,
+    // football: true,
+    // tennis: true,
     message: ""
   };
 
@@ -102,7 +102,7 @@ class FormAdd extends Component {
             <form onSubmit={this.handleSubmit}>
               <label htmlFor="nameOfEvent"></label>
               <input
-                className="inputFields"
+                className="inputField"
                 type="text"
                 placeholder="Name Of Event"
                 name="nameOfEvent"
@@ -112,7 +112,7 @@ class FormAdd extends Component {
               />
               <br></br>
               <input
-                className="inputFields"
+                className="inputField"
                 type="text"
                 placeholder="Description"
                 name="description"
@@ -123,7 +123,7 @@ class FormAdd extends Component {
               <br></br>
               <input
                 type="datetime-local"
-                className="inputFields"
+                className="inputField"
                 placeholder="Event Time"
                 name="eventTime"
                 id="eventTime"
@@ -176,7 +176,7 @@ class FormAdd extends Component {
                 />
               </div>
               <br />
-              <button className="formBtn" type="submit">
+              <button className="formBtnEvent" type="submit">
                 Create
               </button>
             </form>
