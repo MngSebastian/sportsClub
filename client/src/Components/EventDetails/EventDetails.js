@@ -22,6 +22,7 @@ export default class EventDetails extends Component {
                 {" "}
                 Description:<br></br> {this.props.eventDetails.description}
               </p>
+              {/* asd */}
               <p>
                 <br></br>
                 {this.props.eventDetails.eventTime}
