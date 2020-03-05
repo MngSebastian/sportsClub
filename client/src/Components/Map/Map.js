@@ -44,6 +44,12 @@ export default class Map extends Component {
     // console.log(this.state.seeEventDetails);
   };
 
+  clearEventDetails = cancel => {
+    this.setState({
+      seeEventDetails: null
+    });
+  };
+
   getData = () => {
     axios.get("/sports/all").then(res => {
       this.setState({
@@ -119,7 +125,10 @@ export default class Map extends Component {
         </div>
         <div>
           {this.state.seeEventDetails ? (
-            <EventDetails eventDetails={this.state.seeEventDetails} />
+            <EventDetails
+              clearEventDetails={this.clearEventDetails}
+              eventDetails={this.state.seeEventDetails}
+            />
           ) : (
             ""
           )}
