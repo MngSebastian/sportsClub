@@ -58,12 +58,13 @@ export default class Map extends Component {
     // console.log(this.state.seeEventDetails);
   };
 
-  clearEventDetails = () => {
+  clearEventDetails = cancel => {
     this.setState({
       seeEventDetails: null
     });
   };
 
+<<<<<<< HEAD
   jointEvent = () => {
     console.log(this.state.seeEventDetails._id);
     // axios
@@ -75,6 +76,8 @@ export default class Map extends Component {
     //   });
   };
 
+=======
+>>>>>>> f2a07c16c5f4f28529710653f7d397a2fbe3d158
   getData = () => {
     axios.get("/sports/all").then(res => {
       this.setState({

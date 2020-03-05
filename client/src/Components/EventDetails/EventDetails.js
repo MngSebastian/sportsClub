@@ -9,7 +9,26 @@ export default class EventDetails extends Component {
       <div>
         <div className="eventDetails">
           <div className="header">
-            <p>Event Name: {this.props.eventDetails.nameOfEvent}</p>
+            <p>{this.props.eventDetails.nameOfEvent}</p>
+          </div>
+          <div>
+            <div className="usersJoining">
+              <div className="user">
+                <p>user42</p>
+              </div>
+            </div>
+            <div className="EventInfo">
+              <p>
+                {" "}
+                Description:<br></br> {this.props.eventDetails.description}
+              </p>
+              {/* asd */}
+              <p>
+                <br></br>
+                {this.props.eventDetails.eventTime}
+              </p>
+            </div>
+            <button>Join</button>
           </div>
           <p>asd</p>
           <button
