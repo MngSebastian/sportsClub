@@ -1,0 +1,27 @@
+[
+    {
+        "name": "International Tennis Club Berlin",
+        "coordinates": "[52.563595, 13.303951]",
+        "sportType": "tennis"
+      },
+      {
+        "name": "Tennisfreunde Berlin-Mitte e.V.",
+        "coordinates": "[52.542094, 13.368153]",
+        "sportType": "tennis"
+      },
+      {
+        "name": "TCW Tennis Center",
+        "coordinates": "[52.569856, 13.458447]",
+        "sportType": "tennis"
+      },
+      {
+        "name": "Tennis-Club Berlin-Weißensee",
+        "coordinates": "[52.559004, 13.484883]",
+        "sportType": "tennis"
+      },
+      {
+        "name": "SV Berlin breweries e.V.",
+        "coordinates": "[52.536875, 13.466823]",
+        "sportType": "tennis"
+      }
+]
