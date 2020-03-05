@@ -4,11 +4,6 @@ import "./EventDetials.css";
 export default class EventDetails extends Component {
   state = {};
 
-  
-  
-  
-  
-  
   render() {
     return (
       <div>
@@ -18,6 +13,13 @@ export default class EventDetails extends Component {
           </div>
           <p>asd</p>
           <button>Join</button>
+          <button
+            onClick={() => {
+              this.props.clearEventDetails();
+            }}
+          >
+            Go Back
+          </button>
         </div>
       </div>
     );
