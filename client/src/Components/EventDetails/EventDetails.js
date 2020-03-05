@@ -10,7 +10,7 @@ export default class EventDetails extends Component {
     const eventTime = moment(created).fromNow();
 
     const users = this.props.eventDetails.usersJoining.map(user => {
-      return <div>{user.username}</div>;
+      return <div className="user">{user.username}</div>;
     });
 
     return (
@@ -25,7 +25,7 @@ export default class EventDetails extends Component {
                 <p>People Joining</p>
               </div>
               <div className="scrollDiv">
-                <div className="user">
+                <div className="">
                   <p>{users}</p>
                 </div>
               </div>
