@@ -27,12 +27,6 @@ class FormAdd extends Component {
     });
   };
 
-  handleChange = event => {
-    this.setState({
-      [event.target.name]: event.target.value
-    });
-  };
-
   handleRadio = click => {
     if (click.target.value === "football") {
       this.setState({
@@ -55,8 +49,15 @@ class FormAdd extends Component {
     }
   };
 
+  handleChange = event => {
+    this.setState({
+      [event.target.name]: event.target.value
+    });
+  };
+
   handleSubmit = event => {
     event.preventDefault();
+    console.log("location at submit", this.state.location);
 
     axios
       .post("/sports/event/add", {
@@ -99,8 +100,6 @@ class FormAdd extends Component {
           </div>
           <div className="form">
             <form onSubmit={this.handleSubmit}>
-              <label htmlFor="location"></label>
-              <br></br>
               <label htmlFor="nameOfEvent"></label>
               <input
                 className="inputField"
@@ -134,7 +133,12 @@ class FormAdd extends Component {
 
               <br></br>
               <label htmlFor="location">Choose a location: </label>
-              <select name="location" id="location">
+              <select
+                name="location"
+                onChange={this.handleChange}
+                id="location"
+                value={this.state.location}
+              >
                 {selectedLocations.map(location => {
                   return (
                     <option value={location.name}>
@@ -177,7 +181,6 @@ class FormAdd extends Component {
               </button>
             </form>
           </div>
-          {/* {this.state.message && <p>{this.state.message}</p>} */}
         </div>
       </div>
     );
