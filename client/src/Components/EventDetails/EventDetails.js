@@ -1,10 +1,18 @@
 import React, { Component } from "react";
 import "./EventDetials.css";
+import moment from "moment";
 
 export default class EventDetails extends Component {
   state = {};
 
   render() {
+    let created = this.props.eventDetails.eventTime;
+    const eventTime = moment(created).fromNow();
+
+    const users = this.props.eventDetails.usersJoining.map(user => {
+      return <div>{user.username}</div>;
+    });
+
     return (
       <div>
         <div className="eventDetails">
@@ -14,7 +22,7 @@ export default class EventDetails extends Component {
           <div>
             <div className="usersJoining">
               <div className="user">
-                <p>user42</p>
+                <p>{users}</p>
               </div>
             </div>
             <div className="EventInfo">
@@ -25,19 +33,12 @@ export default class EventDetails extends Component {
               {/* asd */}
               <p>
                 <br></br>
-                {this.props.eventDetails.eventTime}
+                {eventTime}
               </p>
             </div>
-            <button>Join</button>
           </div>
           <p>asd</p>
-          <button
-            onClick={() => {
-              this.props.joinEvent();
-            }}
-          >
-            Join
-          </button>
+          <button onClick={this.props.joinEvent}>Join</button>
           <button
             onClick={() => {
               this.props.clearEventDetails();

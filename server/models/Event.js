@@ -11,10 +11,12 @@ const eventSchema = new Schema(
     location: String,
     eventTime: String,
     description: String,
-    usersJoining: {
-      type: Schema.Types.ObjectId,
-      ref: "User"
-    }
+    usersJoining: [
+      {
+        type: Schema.Types.ObjectId,
+        ref: "User"
+      }
+    ]
   },
   {
     timestamps: {

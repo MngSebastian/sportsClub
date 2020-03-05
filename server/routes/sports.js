@@ -6,9 +6,11 @@ const Location = require("../models/Location");
 //DISPLAY ALL LOCATIONS AND EVENTS
 router.get("/all", (req, res) => {
   Event.find()
-    .then(events => {
-      return events;
-    })
+    // .then(events => {
+    //   return events;
+    // })
+    .populate("usersJoining")
+    .populate("creator")
     .then(events => {
       Location.find().then(locations => {
         res.json({ locations, events });
@@ -48,7 +50,7 @@ router.post("/event/join", (req, res) => {
 
   Event.findByIdAndUpdate(eventId, { $push: { usersJoining: req.user._id } })
     .then(event => {
-      return event;
+      res.json(event);
     })
     .catch(err => {
       res.status(500).json({
@@ -56,6 +58,21 @@ router.post("/event/join", (req, res) => {
       });
     });
 });
+
+//GET THE EVENT
+// router.get("/event/who", (req, res) => {
+//   const eventId = req.body.id;
+
+//   Event.findById(eventId)
+//     .then(event => {
+//       res.json(event);
+//     })
+//     .catch(err => {
+//       res.status(500).json({
+//         message: err.message
+//       });
+//     });
+// });
 
 //CREATE LOCATION
 // router.post("/location/add", (req, res, next) => {

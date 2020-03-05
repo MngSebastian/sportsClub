@@ -9,7 +9,6 @@ import SportsNavbar from "../SportsNavbar/SportsNavbar";
 import Events from "../Events/Events";
 import EventDetails from "../EventDetails/EventDetails";
 import Pin from "./Pin";
-import { withRouter } from "react-router-dom";
 import { toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 
@@ -29,7 +28,6 @@ export default class Map extends Component {
     },
     locations: [],
     events: [],
-    usersJoining: [],
     filteredSports: [],
     addLocPopup: false,
     seeEventsList: true,
@@ -55,29 +53,34 @@ export default class Map extends Component {
     this.setState({
       seeEventDetails: event
     });
-    // console.log(this.state.seeEventDetails);
   };
 
-  clearEventDetails = cancel => {
+  clearEventDetails = () => {
     this.setState({
       seeEventDetails: null
     });
   };
 
-<<<<<<< HEAD
-  jointEvent = () => {
-    console.log(this.state.seeEventDetails._id);
-    // axios
-    //   .post("/sports/event/join", {
-    //     id: this.state.seeEventDetails._id
-    //   })
-    //   .then(res => {
-    //     this.notifySuccess();
-    //   });
+  joinEvent = () => {
+    axios
+      .post("/sports/event/join", {
+        id: this.state.seeEventDetails._id
+      })
+      .then(res => {
+        this.notifySuccess();
+      });
   };
 
-=======
->>>>>>> f2a07c16c5f4f28529710653f7d397a2fbe3d158
+  // getWhosJoining = () => {
+  //   axios
+  //     .get("/sports/event/who", {
+  //       id: this.state.seeEventDetails._id
+  //     })
+  //     .then(res => {
+  //       //
+  //     });
+  // };
+
   getData = () => {
     axios.get("/sports/all").then(res => {
       this.setState({
@@ -100,9 +103,6 @@ export default class Map extends Component {
 
   handleOnClickSportsFilter = event => {
     event.preventDefault();
-    console.log(this.state.basketball, "basketball toggled");
-    console.log(this.state.tennis, "tennis toggled");
-    console.log(this.state.football, "football toggled");
     this.setState({
       [event.target.name]: !this.state[event.target.name]
     });
@@ -156,7 +156,7 @@ export default class Map extends Component {
             <EventDetails
               clearEventDetails={this.clearEventDetails}
               eventDetails={this.state.seeEventDetails}
-              joinEvent={this.state.joinEvent}
+              joinEvent={this.joinEvent}
             />
           ) : (
             ""
