@@ -12,7 +12,13 @@ export default class EventDetails extends Component {
             <p>Event Name: {this.props.eventDetails.nameOfEvent}</p>
           </div>
           <p>asd</p>
-          <button>Join</button>
+          <button
+            onClick={() => {
+              this.props.joinEvent();
+            }}
+          >
+            Join
+          </button>
           <button
             onClick={() => {
               this.props.clearEventDetails();

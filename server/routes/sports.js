@@ -43,17 +43,12 @@ router.post("/event/add", (req, res, next) => {
 });
 
 //JOIN USER TO THE EVENT
-router.get("/event/join", (req, res) => {
+router.post("/event/join", (req, res) => {
+  const eventId = req.body.id;
 
-  const id = req.body.id
-  Event.findById(id)
-    .then(events => {
-      return events;
-    })
-    .then(events => {
-      Location.find().then(locations => {
-        res.json({ locations, events });
-      });
+  Event.findByIdAndUpdate(eventId, { $push: { usersJoining: req.user._id } })
+    .then(event => {
+      return event;
     })
     .catch(err => {
       res.status(500).json({

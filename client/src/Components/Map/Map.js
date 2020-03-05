@@ -65,13 +65,14 @@ export default class Map extends Component {
   };
 
   jointEvent = () => {
-    axios
-      .post("/sports/event/join", {
-        id: this.state.seeEventDetails._id
-      })
-      .then(res => {
-        this.notifySuccess();
-      });
+    console.log(this.state.seeEventDetails._id);
+    // axios
+    //   .post("/sports/event/join", {
+    //     id: this.state.seeEventDetails._id
+    //   })
+    //   .then(res => {
+    //     this.notifySuccess();
+    //   });
   };
 
   getData = () => {
@@ -152,6 +153,7 @@ export default class Map extends Component {
             <EventDetails
               clearEventDetails={this.clearEventDetails}
               eventDetails={this.state.seeEventDetails}
+              joinEvent={this.state.joinEvent}
             />
           ) : (
             ""
