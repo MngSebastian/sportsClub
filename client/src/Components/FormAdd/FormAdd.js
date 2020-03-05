@@ -57,7 +57,6 @@ class FormAdd extends Component {
 
   handleSubmit = event => {
     event.preventDefault();
-    console.log("location at submit", this.state.location);
 
     axios
       .post("/sports/event/add", {

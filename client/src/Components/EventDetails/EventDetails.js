@@ -1,10 +1,18 @@
 import React, { Component } from "react";
 import "./EventDetials.css";
+import moment from "moment";
 
 export default class EventDetails extends Component {
   state = {};
 
   render() {
+    let created = this.props.eventDetails.eventTime;
+    const eventTime = moment(created).fromNow();
+
+    const users = this.props.eventDetails.usersJoining.map(user => {
+      return <div>{user.username}</div>;
+    });
+
     return (
       <div>
         <div className="eventDetails">
@@ -18,43 +26,61 @@ export default class EventDetails extends Component {
               </div>
               <div className="scrollDiv">
                 <div className="user">
-                  <p>bannana</p>
+                  <p>{users}</p>
                 </div>
-              </div>
-            </div>
-
-            <div className="EventInfo">
-              <div className="info"></div>
-              <div className="info description">
-                <p>
-                  {" "}
-                  Description:<br></br> {this.props.eventDetails.description}
-                </p>
               </div>
 
-              <div className="info time">
-                {this.props.eventDetails.eventTime}
-              </div>
-            </div>
-            <div className="asd">
-              <div className="BtnDiv">
-                <div className="spaceForHover">
-                  <button className="btn">Join</button>
+              <div className="EventInfo">
+                <div className="info"></div>
+                <div className="info description">
+                  <p>
+                    {" "}
+                    Description:<br></br> {this.props.eventDetails.description}
+                  </p>
                 </div>
-                <div className="spaceForHover">
-                  <button
-                    className="btn"
-                    onClick={() => {
-                      this.props.clearEventDetails();
-                    }}
-                  >
-                    Go Back
-                  </button>
+
+                <div className="info time">
+                  {this.props.eventDetails.eventTime}
                 </div>
               </div>
+              <div className="asd">
+                <div className="BtnDiv">
+                  <div className="spaceForHover">
+                    <button className="btn">Join</button>
+                  </div>
+                  <div className="spaceForHover">
+                    <button
+                      className="btn"
+                      onClick={() => {
+                        this.props.clearEventDetails();
+                      }}
+                    >
+                      Go Back
+                    </button>
+                  </div>
+                </div>
+              </div>
             </div>
+            <p>
+              {" "}
+              Description:<br></br> {this.props.eventDetails.description}
+            </p>
+            {/* asd */}
+            <p>
+              <br></br>
+              {eventTime}
+            </p>
           </div>
         </div>
+        <p>asd</p>
+        <button onClick={this.props.joinEvent}>Join</button>
+        <button
+          onClick={() => {
+            this.props.clearEventDetails();
+          }}
+        >
+          Go Back
+        </button>
       </div>
     );
   }
