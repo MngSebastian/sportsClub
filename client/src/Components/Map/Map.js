@@ -18,7 +18,7 @@ export default class Map extends Component {
     viewport: {
       longitude: 13.4,
       latitude: 52.52,
-      zoom: 8,
+      zoom: 10,
       bearing: 0,
       pitch: 0
     },
@@ -41,7 +41,7 @@ export default class Map extends Component {
     this.setState({
       seeEventDetails: event
     });
-    console.log(this.state.seeEventDetails);
+    // console.log(this.state.seeEventDetails);
   };
 
   getData = () => {
