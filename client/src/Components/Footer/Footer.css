@@ -3,10 +3,11 @@
   justify-content: center;
   align-items: baseline;
   height: 3vh;
-  background-color: rgba(236, 240, 241, 0.25);
+  background-color: rgba(0, 0, 0, 1);
   position: fixed;
   width: 100%;
   bottom: 0;
+  z-index: 2000;
 }
 .footerItems {
   color: white;

@@ -6,16 +6,16 @@
   /* height: 84.7vh; */
 
   height: 82vh;
-  background-color: rgba(255, 255, 255, 0.2);
+  background-color: rgba(0, 0, 0, 0.4);
   overflow-y: auto;
 }
 
 .test555 {
-  border-top: 0.5px solid grey;
-  border-right: 0.5px solid grey;
-  border-left: 0.5px solid grey;
-  color: white;
-  height: 10vh;
+  border-top: 0.5px solid rgba(0, 0, 0, 1);
+  border-right: 0.5px solid rgba(0, 0, 0, 1);
+  border-left: 0.5px solid rgba(0, 0, 0, 1);
+  color: rgba(230, 126, 34, 1);
+  height: 13.5vh;
   display: flex;
   justify-content: center;
   display: flex;
@@ -24,7 +24,7 @@
   text-align: center;
 }
 .test555:last-child {
-  border-bottom: 1px solid grey;
+  border-bottom: 1px solid rgba(0, 0, 0, 1);
 }
 
 .test555:hover {
