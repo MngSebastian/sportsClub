@@ -68,6 +68,7 @@ export default class Map extends Component {
       })
       .then(res => {
         this.notifySuccess();
+        this.getData();
       });
   };
 
